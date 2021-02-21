@@ -1,4 +1,4 @@
-module github.com/codecrafters-io/git-tester
+module github.com/codecrafters-io/sqlite-tester
 
 go 1.14
 

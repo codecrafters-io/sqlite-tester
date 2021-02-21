@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/codecrafters-io/git-tester/internal"
+	"github.com/codecrafters-io/sqlite-tester/internal"
 )
 
 func main() {
