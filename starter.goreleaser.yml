@@ -6,7 +6,7 @@ builds:
 release:
   github:
     owner: "codecrafters-io"
-    name: "git-starter-tester"
+    name: "sqlite-starter-tester"
 
 changelog:
   skip: true
