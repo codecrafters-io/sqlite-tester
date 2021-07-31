@@ -7,16 +7,17 @@ import (
 )
 
 var randomWords = []string{
-	"humpty",
-	"dumpty",
-	"horsey",
-	"donkey",
-	"yikes",
-	"monkey",
-	"doo",
-	"scooby",
-	"dooby",
+	"chocolate",
 	"vanilla",
+	"strawberry",
+	"watermelon",
+	"coffee",
+	"grape",
+	"coconut",
+	"butterscotch",
+	"pistachio",
+	"banana",
+	"mango",
 }
 
 func randomString() string {
@@ -24,12 +25,12 @@ func randomString() string {
 
 	return strings.Join(
 		[]string{
-			randomWords[rand.Intn(10)],
-			randomWords[rand.Intn(10)],
-			randomWords[rand.Intn(10)],
-			randomWords[rand.Intn(10)],
-			randomWords[rand.Intn(10)],
-			randomWords[rand.Intn(10)],
+			randomStringShort(),
+			randomStringShort(),
+			randomStringShort(),
+			randomStringShort(),
+			randomStringShort(),
+			randomStringShort(),
 		},
 		" ",
 	)
@@ -37,7 +38,7 @@ func randomString() string {
 
 func randomStringShort() string {
 	rand.Seed(time.Now().UnixNano())
-	return randomWords[rand.Intn(10)]
+	return randomWords[rand.Intn(len(randomWords))]
 }
 
 func randomStringsShort(n int) []string {

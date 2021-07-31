@@ -1,10 +1,15 @@
 package internal
 
 import (
+	"database/sql"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"path"
+	"regexp"
+
+	_ "github.com/mattn/go-sqlite3"
 
 	tester_utils "github.com/codecrafters-io/tester-utils"
 )
@@ -13,33 +18,41 @@ func testInit(stageHarness tester_utils.StageHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
-	logger.Debugf("Running git init")
-	tempDir, err := ioutil.TempDir("", "worktree")
+	_ = os.Remove("./test.db")
+
+	db, err := sql.Open("sqlite3", "./test.db")
 	if err != nil {
+		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
 	}
+	defer db.Close()
 
-	executable.WorkingDir = tempDir
-	_, err = executable.Run("init")
-	if err != nil {
-		return err
-	}
+	tableNames := randomStringsShort(1 + rand.Intn(9))
 
-	for _, dir := range []string{".git", ".git/objects", ".git/refs"} {
-		if err = assertDirExistsInDir(tempDir, dir); err != nil {
-			logDebugTree(logger, tempDir)
+	logger.Infof("Creating test database with %v, %v tables: test.db", len(tableNames), tableNames)
+
+	for _, tableName := range tableNames {
+		sqlStmt := fmt.Sprintf(`
+			create table %v (id integer not null primary key, name text);
+		`, tableName)
+
+		_, err = db.Exec(sqlStmt)
+		if err != nil {
+			logger.Errorf("Failed to create test table, this is a CodeCrafters error.")
 			return err
 		}
 	}
 
-	for _, file := range []string{".git/HEAD"} {
-		if err = assertFileExistsInDir(tempDir, file); err != nil {
-			logDebugTree(logger, tempDir)
-			return err
-		}
+	logger.Infof("Executing your_sqlite3.sh test.db .dbinfo")
+	result, err := executable.Run("test.db", ".dbinfo")
+	if err != nil {
+		return err
 	}
 
-	if err = assertFileContents(".git/HEAD", path.Join(tempDir, ".git/HEAD")); err != nil {
+	numberOfTablesRegex := regexp.MustCompile(fmt.Sprintf("number of tables:\\s+%v", len(tableNames)))
+	numberOfTablesFriendlyPattern := fmt.Sprintf("number of tables: %v", len(tableNames))
+
+	if err = assertStdoutMatchesRegex(result, *numberOfTablesRegex, numberOfTablesFriendlyPattern); err != nil {
 		return err
 	}
 

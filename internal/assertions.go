@@ -2,6 +2,7 @@ package internal
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 
 	tester_utils "github.com/codecrafters-io/tester-utils"
@@ -37,6 +38,15 @@ func assertStdoutContains(result tester_utils.ExecutableResult, expectedSubstrin
 	actual := string(result.Stdout)
 	if !strings.Contains(actual, expectedSubstring) {
 		return fmt.Errorf("Expected stdout to contain %q, got: %q", expectedSubstring, actual)
+	}
+
+	return nil
+}
+
+func assertStdoutMatchesRegex(result tester_utils.ExecutableResult, pattern regexp.Regexp, friendlyPattern string) error {
+	actual := string(result.Stdout)
+	if !pattern.MatchString(actual) {
+		return fmt.Errorf("Expected stdout to contain %q, got: %q", friendlyPattern, actual)
 	}
 
 	return nil

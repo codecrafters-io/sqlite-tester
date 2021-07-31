@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestInit(t *testing.T) {
+func TestInitFailure(t *testing.T) {
 	m := NewStdIOMocker()
 	m.Start()
 	defer m.End()
@@ -19,11 +19,16 @@ func TestInit(t *testing.T) {
 		failWithMockerOutput(t, m)
 	}
 	assert.Contains(t, m.ReadStdout(), "nothing")
+	assert.Contains(t, m.ReadStdout(), "number of tables")
 	assert.Contains(t, m.ReadStdout(), "Test failed")
+}
 
-	m.Reset()
+func TestInitSuccess(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
 
-	exitCode = runCLIStage("init", "test_helpers/stages/init")
+	exitCode := runCLIStage("init", "test_helpers/stages/init")
 	if !assert.Equal(t, 0, exitCode) {
 		failWithMockerOutput(t, m)
 	}
@@ -37,6 +42,7 @@ func runCLIStage(slug string, dir string) (exitCode int) {
 	return RunCLI(map[string]string{
 		"CODECRAFTERS_CURRENT_STAGE_SLUG": slug,
 		"CODECRAFTERS_SUBMISSION_DIR":     path.Join(cwd, dir),
+		"CODECRAFTERS_COURSE_PAGE_URL":    "test",
 	})
 }
 
