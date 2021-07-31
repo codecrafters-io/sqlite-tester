@@ -1,260 +1,76 @@
-slug: "git"
-name: "Build your own Git"
+slug: "sqlite"
+name: "Build your own SQLite"
 description_md: |
-  In this challenge, you'll build a toy Git implementation that can clone a
-  public repository, add commits and push them back to a git server. Along the
-  way, you'll learn about the `.git` directory, Git objects (blobs, commits,
-  trees etc.), Git's transfer protocols and much more.
+  In this challenge, you'll build a barebones SQLite implementation that supports
+  basic SQL statements like SELECT/INSERT.
 
-supported_languages: ["python", "ruby"]
+  Along the way, you'll learn about SQLite's [file format](https://sqlite.org/fileformat.html), how indexed data is
+  [stored in B-trees](https://jvns.ca/blog/2014/10/02/how-does-sqlite-work-part-2-btrees/) and more.
+completion_percentage: 5
+
+supported_languages: ["python"]
+early_access_languages: []
 starter_repos:
-  python: https://github.com/codecrafters-io/git-starter-python
-  ruby: https://github.com/codecrafters-io/git-starter-ruby
-  
-marketing_intro_md: |
-  In this challenge, you'll build a toy Git implementation that can clone a
-  public repository, commit changes and push them back to a git server. Along
-  the way, you'll learn about the [`.git`
-  directory](http://gitready.com/advanced/2009/03/23/whats-inside-your-git-directory.html),
-  a few of Git's ["plumbing"
-  commands](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain),
-  [Git objects](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
-  (blobs, commits, trees etc.), Git's [transfer
-  protocols](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols) and
-  more.
+  python: https://github.com/codecrafters-io/sqlite-starter-python
 
+marketing:
+  description: Learn about SQLite's file format, how indexed data is stored in B-trees and more.
+  difficulty: hard
+  introduction_md: |
+    In this challenge, you'll build a barebones SQLite implementation that supports
+    basic SQL statements like SELECT/INSERT. Along the way, you'll learn about SQLite's
+    [file format](https://sqlite.org/fileformat.html), how indexed data is
+    stored in B-trees and more.
 
 stages:
   - slug: "init"
-    name: "Initialize the .git directory"
+    name: "Print number of tables"
     description_md: |
-      In this stage, you'll implement the `git init` command. This command
-      initializes a repository by creating a `.git` directory and some files
-      inside it.
-
-      You can read more about what's inside the `.git` folder
-      [here](http://gitready.com/advanced/2009/03/23/whats-inside-your-git-directory.html).
-
-      For the purposes of this challenge, you'll only need to create the bare
-      minimum required for Git to function properly:
-
-      ```
-      - .git/
-        - objects/
-        - refs/
-        - HEAD (should contain "ref: refs/heads/master\n")
-      ```
-
-      We'd like to make the first stage easy to pass, so we've included steps on
-      how to pass this stage in the readme.
-
+      TBD
     marketing_md: |
-      In this stage, you'll implement the `git init` command. You'll initialize
-      a git repository by creating a `.git` directory and some files inside it.
+      In this stage, you'll implement one of SQLite's dot-commands: [`.dbinfo`](https://www.sqlite.org/cli.html#special_commands_to_sqlite3_dot_commands_).
+      This command prints metadata related a SQLite database, and you'll implement one of these values: the number of
+      tables. You'll do this by parsing a file that uses the [SQLite database file format](https://www.sqlite.org/fileformat.html).
 
-  - slug: "read_blob"
-    name: "Read a blob object"
+  - slug: "print_table_names"
+    name: "Print table names"
     description_md: |
-      In this challenge, we'll deal with three [Git
-      objects](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects):
-
-        - blobs
-        - trees
-        - commits
-
-      Let's start with blobs, which represent files (binary data, to be
-      precise).
-
-      In this stage, you'll read a blob from your git repository by fetching its
-      contents from the `.git/objects` directory.
-
-      You'll do this using the first of multiple ["plumbing"
-      commands](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain)
-      we'll encounter in this challenge: [`git
-      cat-file`](https://git-scm.com/docs/git-cat-file).
-
-      Your program will be called like so:
-
-      ```
-      ./your_git.sh cat-file -p <blob_sha>
-      ```
-
-      It is expected to print out the binary data that the blob contains.
-
+      TBD
     marketing_md: |
-      In this stage, you'll read a blob from your git repository by fetching its
-      contents from the `.git/objects` directory.
+      In this stage, you'll implement another dot-command:
+      [`.tables`](https://www.sqlite.org/cli.html#special_commands_to_sqlite3_dot_commands_). Instead of just printing
+      the count of tables like in the previous stage, you'll print out the names of tables too.
 
-      You'll do this using the first of multiple ["plumbing"
-      commands](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain)
-      we'll encounter in this challenge: [`git
-      cat-file`](https://git-scm.com/docs/git-cat-file).
-
-
-  - slug: "create_blob"
-    name: "Create a blob object"
+  - slug: "count_rows"
+    name: "Count rows in a table"
     description_md: |
-      In the previous stage, we learnt how to read a blob. In this stage, you'll
-      add a blob to your git repository by implementing the [`git
-      hash-object`](https://git-scm.com/docs/git-hash-object) command.
-
-      Your program will be called like so:
-
-      ```
-      ./your_git.sh hash-object -w <file>
-      ```
-
-      It is expected to store the data from `<file>` as a blob in `.git/objects`
-      and print a 40-char SHA to stdout.
-
-      To verify your implementation, the tester will try to read the blob your
-      program wrote. It'll do this using [`git
-      cat-file`](https://git-scm.com/docs/git-cat-file), the command you
-      implemented in the previous stage.
-
-      ```
-      git cat-file -p <blob_sha>
-      ```
-
+      TBD
     marketing_md: |
-      In the previous stage, we learnt how to read a blob. In this stage, we'll
-      persist a blob by implementing the `git hash-object` command.
+      Now that you've gotten your feet wet with the [SQLite database file format](https://www.sqlite.org/fileformat.html),
+      it's time to move on to actual SQL!
 
-  - slug: "read_tree"
-    name: "Read a tree object"
+      In this stage, your sqlite3 implementation will need to execute a SQL statement of this form:
+      `SELECT COUNT(*) FROM <table>`.
+
+  - slug: "select_single_column"
+    name: "Read data from a single column"
     description_md: |
-      In this stage, you'll implement the [`git
-      ls-tree`](https://git-scm.com/docs/git-ls-tree) command, which lets you
-      inspect a tree object.
-
-      The tester will execute your program like this:
-
-      ```
-      ./your_git.sh ls-tree --name-only <tree_sha>
-      ```
-
-      For a directory structure like this, 
-
-      ```
-      - file1
-      dir1/
-       - file_in_dir_1
-       - file_in_dir_2
-      dir2/
-       - file_in_dir_3
-      ```
-
-      The output expected is:
-
-      ```
-      dir1
-      dir2
-      file1
-      ```
-
-      (Note that the output is alphabetically sorted, just like the tree objects
-      are stored)
-
+      TBD
     marketing_md: |
-      Now that we've learnt how to read/write blobs, let's move onto our next
-      Git object: [the tree](https://developer.github.com/v3/git/trees/). In
-      this stage, you'll read a tree object from storage by implementing the
-      `git ls-tree` command.
+      In this stage, your sqlite3 implementation will need to execute a SQL statement of this form: `SELECT <column> FROM <table>`.
 
-  - slug: "write_tree"
-    name: "Write a tree object"
+  - slug: "select_multiple_columns"
+    name: "Read data from multiple columns"
     description_md: |
-      Now that you know how to read a tree object, let's put your new found
-      skills to test - can you _write_ a tree?
-
-      Here's how the tester will invoke your program:
-
-      ```
-      ./your_git.sh write-tree
-      ```
-
-      You're expected to write the entire working directory as a tree object,
-      and return the 40-char SHA.
-
-      Caveat: Unlike the official Git implementation, we aren't going to
-      implement a staging area (the place where things go when you run `git
-      add`). We'll just assume that all files in the working directory are
-      staged. If you're testing this against `git` locally, make sure to run
-      `git add .` before `git write-tree`. 
-
-      To verify your implementation, the tester will read the tree object from
-      the `.git` directory.
-
+      TBD
     marketing_md: |
-      In this stage, you'll write a tree to git storage by implementing the [`git
-      write-tree`](https://git-scm.com/docs/git-write-tree) command.
+      This stage is similar to the previous one, just that you'll read data from multiple columns instead of just one.
+      In this stage, your sqlite3 implementation will need to execute a SQL statement of this form: `SELECT <column1>,<column2> FROM <table>`.
 
-      To keep things simple, we won't implement an `index`, we'll just assume
-      that all changes in the worktree are staged.
-
-  - slug: "create_commit"
-    name: "Create a commit"
+  - slug: "where"
+    name: "Filter data using a WHERE clause"
     description_md: |
-      Let's move on to the last git object we'll be dealing with in this
-      challenge: the commit.
-
-      To create a commit, you'll need the following information:
-
-      - Committer/Author name + email
-      - Timestamp
-      - Tree SHA
-      - Parent commit SHA(s), if any
-
-      In this stage, you'll implement `git commit-tree`, a plumbing command that
-      creates a commit. 
-
-      Your program will be invoked like this:
-
-      ```
-      ./your_git.sh commit-tree <tree_sha> -p <commit_sha> -m <message>
-      ```
-
-      You'll receive exactly one parent commit, and exactly one line in the
-      message. You're free to hardcode any valid name/email for the
-      author/committer fields. 
-
-      Your program must create a commit object and print its 40-char SHA to
-      stdout.
-
-      To verify your changes, the tester will read the commit object from the
-      `.git` directory. It'll use the `git show` command to do this.
-
+      TBD
     marketing_md: |
-      Let's move on to the last git object we'll be dealing with in this
-      challenge: the commit. In this stage, you'll create a commit by
-      implementing the [`git commit-tree`](https://git-scm.com/docs/git-commit)
-      command.
-
-  - slug: "clone_repository"
-    name: "Clone a repository"
-    description_md: |
-      This is the last stage of the challenge, and probably the hardest.
-
-      In this stage, you'll clone a public repository from GitHub. To do this,
-      you'll use one of Git's [Transfer
-      protocols](https://git-scm.com/book/en/v2/Git-Internals-Transfer-Protocols).
-
-      Your program will be invoked like this:
-
-      ```
-      ./your_git.sh clone https://github.com/blah/blah <some_dir>
-      ```
-
-      Your program must create `<some_dir>` and clone the given repository into
-      it. 
-
-      To verify your changes, the tester will do the following:
-
-      - Check the contents of a file
-      - Read commit object attributes from the `.git` directory
-
-    marketing_md: |
-      This is the last stage of the challenge, and probably the hardest! In this
-      stage, you'll clone a public repository from GitHub. To do this, you'll
-      use one of Git's [Transfer
-      protocols](https://git-scm.com/book/en/v2/Git-Internals-Transfer-Protocols).
+      This stage is similar to the previous one, just that you'll read data from multiple columns instead of just one.
+      In this stage, your sqlite3 implementation will need to execute a SQL statement of this form: `SELECT <column1>,<column2> FROM <table>`.

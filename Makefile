@@ -21,7 +21,7 @@ test_with_git: build
 
 copy_course_file:
 	hub api \
-		repos/rohitpaulk/codecrafters-server/contents/codecrafters/store/data/git.yml \
+		repos/rohitpaulk/codecrafters-server/contents/codecrafters/store/data/sqlite.yml \
 		| jq -r .content \
 		| base64 -d \
 		> internal/test_helpers/course_definition.yml
