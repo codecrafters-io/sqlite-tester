@@ -2,6 +2,8 @@ builds:
   - main: ./cmd/starter_tester/main.go
     env:
       - CGO_ENABLED=1
+    goos:
+      - linux
 
 release:
   github:
