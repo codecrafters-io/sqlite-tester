@@ -29,7 +29,7 @@ func testInit(stageHarness tester_utils.StageHarness) error {
 
 	tableNames := randomStringsShort(1 + rand.Intn(9))
 
-	logger.Infof("Creating test database with %v, %v tables: test.db", len(tableNames), tableNames)
+	logger.Infof("Creating test database with %v tables: test.db", len(tableNames))
 
 	for _, tableName := range tableNames {
 		sqlStmt := fmt.Sprintf(`
@@ -43,7 +43,7 @@ func testInit(stageHarness tester_utils.StageHarness) error {
 		}
 	}
 
-	logger.Infof("Executing your_sqlite3.sh test.db .dbinfo")
+	logger.Infof("Executing \"./your_sqlite3.sh test.db .dbinfo\"")
 	result, err := executable.Run("test.db", ".dbinfo")
 	if err != nil {
 		return err
