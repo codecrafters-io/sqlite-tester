@@ -1,2 +1,2 @@
 #!/bin/sh
-exec sqlite "$@"
+exec sqlite3 "$@"
