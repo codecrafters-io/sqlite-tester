@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"fmt"
 	"io/ioutil"
-	"math/rand"
 	"os"
 	"path"
 	"regexp"
@@ -27,7 +26,7 @@ func testInit(stageHarness tester_utils.StageHarness) error {
 	}
 	defer db.Close()
 
-	tableNames := randomStringsShort(1 + rand.Intn(9))
+	tableNames := randomStringsShort(2 + randomInt(7))
 
 	logger.Infof("Creating test database with %v tables: test.db", len(tableNames))
 

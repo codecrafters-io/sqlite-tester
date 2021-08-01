@@ -21,8 +21,6 @@ var randomWords = []string{
 }
 
 func randomString() string {
-	rand.Seed(time.Now().UnixNano())
-
 	return strings.Join(
 		[]string{
 			randomStringShort(),
@@ -43,6 +41,11 @@ func randomStringShort() string {
 
 func randomStringsShort(n int) []string {
 	return shuffle(randomWords)[0:n]
+}
+
+func randomInt(n int) int {
+	rand.Seed(time.Now().UnixNano())
+	return rand.Intn(n)
 }
 
 func shuffle(vals []string) []string {
