@@ -8,7 +8,7 @@ import (
 	"path"
 	"regexp"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 
 	tester_utils "github.com/codecrafters-io/tester-utils"
 )
@@ -19,7 +19,7 @@ func testInit(stageHarness tester_utils.StageHarness) error {
 
 	_ = os.Remove("./test.db")
 
-	db, err := sql.Open("sqlite3", "./test.db")
+	db, err := sql.Open("sqlite", "./test.db")
 	if err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
