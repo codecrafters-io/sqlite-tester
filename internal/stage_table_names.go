@@ -5,13 +5,15 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"sort"
+	"strings"
 
 	_ "modernc.org/sqlite"
 
 	tester_utils "github.com/codecrafters-io/tester-utils"
 )
 
-func testInit(stageHarness tester_utils.StageHarness) error {
+func testTableNames(stageHarness tester_utils.StageHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
@@ -24,9 +26,10 @@ func testInit(stageHarness tester_utils.StageHarness) error {
 	}
 	defer db.Close()
 
-	tableNames := randomStringsShort(2 + randomInt(7))
+	tableNames := randomStringsShort(5)
+	sort.Strings(tableNames)
 
-	logger.Infof("Creating test database with %v tables: test.db", len(tableNames))
+	logger.Infof("Creating test.db with tables: %v", tableNames)
 
 	for _, tableName := range tableNames {
 		sqlStmt := fmt.Sprintf(`
@@ -40,16 +43,16 @@ func testInit(stageHarness tester_utils.StageHarness) error {
 		}
 	}
 
-	logger.Infof("Executing \"./your_sqlite3.sh test.db .dbinfo\"")
-	result, err := executable.Run("test.db", ".dbinfo")
+	logger.Infof("Executing: ./your_sqlite3.sh test.db .tables")
+	result, err := executable.Run("test.db", ".tables")
 	if err != nil {
 		return err
 	}
 
-	numberOfTablesRegex := regexp.MustCompile(fmt.Sprintf("number of tables:\\s+%v", len(tableNames)))
-	numberOfTablesFriendlyPattern := fmt.Sprintf("number of tables: %v", len(tableNames))
+	tableNamesRegex := regexp.MustCompile(fmt.Sprintf(strings.Join(tableNames, "\\s+")))
+	tableNamesFriendlyPattern := fmt.Sprintf(strings.Join(tableNames, " "))
 
-	if err = assertStdoutMatchesRegex(result, *numberOfTablesRegex, numberOfTablesFriendlyPattern); err != nil {
+	if err = assertStdoutMatchesRegex(result, *tableNamesRegex, tableNamesFriendlyPattern); err != nil {
 		return err
 	}
 

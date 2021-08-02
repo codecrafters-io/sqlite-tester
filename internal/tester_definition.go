@@ -14,5 +14,11 @@ var testerDefinition = testerutils.TesterDefinition{
 			TestFunc:                testInit,
 			ShouldRunPreviousStages: true,
 		},
+		{
+			Slug:                    "table_names",
+			Title:                   "Print table names",
+			TestFunc:                testTableNames,
+			ShouldRunPreviousStages: true,
+		},
 	},
 }

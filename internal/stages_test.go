@@ -34,6 +34,34 @@ func TestInitSuccess(t *testing.T) {
 	}
 }
 
+func TestTableNamesFailure(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
+
+	exitCode := runCLIStage("table_names", "test_helpers/stages/init")
+	if !assert.Equal(t, 1, exitCode) {
+		failWithMockerOutput(t, m)
+	}
+
+	m.End()
+
+	assert.Contains(t, m.ReadStdout(), "Invalid command")
+	assert.Contains(t, m.ReadStdout(), "Expected stdout to contain")
+	assert.Contains(t, m.ReadStdout(), "Test failed")
+}
+
+func TestTableNamesSuccess(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
+
+	exitCode := runCLIStage("table_names", "test_helpers/stages/table_names")
+	if !assert.Equal(t, 0, exitCode) {
+		failWithMockerOutput(t, m)
+	}
+}
+
 func runCLIStage(slug string, dir string) (exitCode int) {
 	cwd, err := os.Getwd()
 	if err != nil {
