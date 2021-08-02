@@ -19,7 +19,7 @@ test_and_watch:
 
 test_with_sqlite: build
 	CODECRAFTERS_SUBMISSION_DIR=$(shell pwd)/internal/test_helpers/pass_all \
-	CODECRAFTERS_CURRENT_STAGE_SLUG="init" \
+	CODECRAFTERS_CURRENT_STAGE_SLUG="row_counts" \
 	CODECRAFTERS_COURSE_PAGE_URL="test" \
 	dist/main.out
 

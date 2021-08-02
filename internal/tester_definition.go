@@ -20,5 +20,11 @@ var testerDefinition = testerutils.TesterDefinition{
 			TestFunc:                testTableNames,
 			ShouldRunPreviousStages: true,
 		},
+		{
+			Slug:                    "row_counts",
+			Title:                   "Count rows in a table",
+			TestFunc:                testRowCounts,
+			ShouldRunPreviousStages: true,
+		},
 	},
 }
