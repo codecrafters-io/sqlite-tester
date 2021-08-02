@@ -32,7 +32,7 @@ stages:
       This command prints metadata related a SQLite database, and you'll implement one of these values: the number of
       tables. You'll do this by parsing a file that uses the [SQLite database file format](https://www.sqlite.org/fileformat.html).
 
-  - slug: "print_table_names"
+  - slug: "table_names"
     name: "Print table names"
     description_md: |
       TBD
@@ -41,7 +41,7 @@ stages:
       [`.tables`](https://www.sqlite.org/cli.html#special_commands_to_sqlite3_dot_commands_). Instead of just printing
       the count of tables like in the previous stage, you'll print out the names of tables too.
 
-  - slug: "count_rows"
+  - slug: "row_counts"
     name: "Count rows in a table"
     description_md: |
       TBD
@@ -52,14 +52,14 @@ stages:
       In this stage, your sqlite3 implementation will need to execute a SQL statement of this form:
       `SELECT COUNT(*) FROM <table>`.
 
-  - slug: "select_single_column"
+  - slug: "read_single_column"
     name: "Read data from a single column"
     description_md: |
       TBD
     marketing_md: |
       In this stage, your sqlite3 implementation will need to execute a SQL statement of this form: `SELECT <column> FROM <table>`.
 
-  - slug: "select_multiple_columns"
+  - slug: "read_multiple_columns"
     name: "Read data from multiple columns"
     description_md: |
       TBD
@@ -67,7 +67,7 @@ stages:
       This stage is similar to the previous one, just that you'll read data from multiple columns instead of just one.
       In this stage, your sqlite3 implementation will need to execute a SQL statement of this form: `SELECT <column1>,<column2> FROM <table>`.
 
-  - slug: "where"
+  - slug: "filter_rows"
     name: "Filter data using a WHERE clause"
     description_md: |
       TBD
