@@ -26,5 +26,11 @@ var testerDefinition = testerutils.TesterDefinition{
 			TestFunc:                testRowCounts,
 			ShouldRunPreviousStages: true,
 		},
+		{
+			Slug:                    "read_single_column",
+			Title:                   "Read data from a single column",
+			TestFunc:                testReadSingleColumn,
+			ShouldRunPreviousStages: true,
+		},
 	},
 }
