@@ -27,7 +27,7 @@ func testRowCounts(stageHarness tester_utils.StageHarness) error {
 	tableName := randomStringShort()
 	rowCount := randomInt(200)
 
-	logger.Infof("Creating table '%v' with %v rows", tableName, rowCount)
+	logger.Debugf("Creating table '%v' with %v rows", tableName, rowCount)
 
 	createTableSql := fmt.Sprintf(`create table %v (id integer not null primary key, name text);`, tableName)
 

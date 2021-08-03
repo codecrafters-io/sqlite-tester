@@ -26,7 +26,7 @@ func testInit(stageHarness tester_utils.StageHarness) error {
 
 	tableNames := randomStringsShort(2 + randomInt(7))
 
-	logger.Infof("Creating test database with %v tables: test.db", len(tableNames))
+	logger.Debugf("Creating test database with %v tables: test.db", len(tableNames))
 
 	for _, tableName := range tableNames {
 		sqlStmt := fmt.Sprintf(`
