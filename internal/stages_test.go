@@ -62,23 +62,17 @@ func TestTableNamesSuccess(t *testing.T) {
 	}
 }
 
-func TestReadSingleColumnFailure(t *testing.T) {
+// TODO: TestReadSingleColumnFailure
+
+func TestReadSingleColumnSuccess(t *testing.T) {
 	m := NewStdIOMocker()
 	m.Start()
 	defer m.End()
 
-	exitCode := runCLIStage("read_single_column", "test_helpers/pass_all") // TODO: Change to row counts
+	exitCode := runCLIStage("read_single_column", "test_helpers/pass_all") // TODO: Change to use custom
 	if !assert.Equal(t, 0, exitCode) {
 		failWithMockerOutput(t, m)
 	}
-
-	failWithMockerOutput(t, m)
-
-	////m.End()
-	//
-	//assert.Contains(t, m.ReadStdout(), "Invalid command")
-	//assert.Contains(t, m.ReadStdout(), "Expected stdout to contain")
-	//assert.Contains(t, m.ReadStdout(), "Test failed")
 }
 
 func runCLIStage(slug string, dir string) (exitCode int) {

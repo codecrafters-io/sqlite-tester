@@ -2,3 +2,4 @@ dist
 venv
 sample.db
 test.db
+internal/test.db
