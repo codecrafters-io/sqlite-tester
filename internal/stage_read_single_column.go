@@ -96,9 +96,6 @@ func testReadSingleColumn(stageHarness tester_utils.StageHarness) error {
 		return err
 	}
 
-	// Expected exactly 5 lines of output.
-	// Expected these records.
-
 	actualValues := strings.SplitAfter(strings.TrimSpace(string(result.Stdout)), "\n")
 
 	if len(actualValues) != len(expectedValues) {
