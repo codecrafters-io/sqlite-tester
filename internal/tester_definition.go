@@ -38,5 +38,11 @@ var testerDefinition = testerutils.TesterDefinition{
 			TestFunc:                testReadMultipleColumns,
 			ShouldRunPreviousStages: true,
 		},
+		{
+			Slug:                    "table_scan",
+			Title:                   "Filter data using a full-table scan",
+			TestFunc:                testTableScan,
+			ShouldRunPreviousStages: true,
+		},
 	},
 }

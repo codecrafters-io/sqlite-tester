@@ -67,10 +67,18 @@ stages:
       This stage is similar to the previous one, just that you'll read data from multiple columns instead of just one.
       In this stage, your sqlite3 implementation will need to execute a SQL statement of this form: `SELECT <column1>,<column2> FROM <table>`.
 
-  - slug: "filter_rows"
-    name: "Filter data using a WHERE clause"
+  - slug: "table_scan"
+    name: "Retrieve data using a full-table scan"
     description_md: |
       TBD
     marketing_md: |
-      This stage is similar to the previous one, just that you'll read data from multiple columns instead of just one.
-      In this stage, your sqlite3 implementation will need to execute a SQL statement of this form: `SELECT <column1>,<column2> FROM <table>`.
+      In this stage, you'll filter records based on a `WHERE` clause. You'll assume that the query can't be served by
+      an index, so you'll visit all records in a table and then filter out the matching ones.
+
+  - slug: "filter_rows"
+    name: "Retrieve data using an index"
+    description_md: |
+      TBD
+    marketing_md: |
+      This stage is similar to the previous one, but focuses on enhancing query performance using an index. In this
+      stage, your program will need to read through millions of rows in under 5 seconds.
