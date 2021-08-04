@@ -32,5 +32,11 @@ var testerDefinition = testerutils.TesterDefinition{
 			TestFunc:                testReadSingleColumn,
 			ShouldRunPreviousStages: true,
 		},
+		{
+			Slug:                    "read_multiple_columns",
+			Title:                   "Read data from multiple columns",
+			TestFunc:                testReadMultipleColumns,
+			ShouldRunPreviousStages: true,
+		},
 	},
 }

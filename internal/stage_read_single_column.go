@@ -96,7 +96,7 @@ func testReadSingleColumn(stageHarness tester_utils.StageHarness) error {
 		return err
 	}
 
-	actualValues := strings.SplitAfter(strings.TrimSpace(string(result.Stdout)), "\n")
+	actualValues := strings.Split(strings.TrimSpace(string(result.Stdout)), "\n")
 
 	if len(actualValues) != len(expectedValues) {
 		return fmt.Errorf("Expected exactly %v lines of output, got: %v", len(expectedValues), len(actualValues))
@@ -106,7 +106,7 @@ func testReadSingleColumn(stageHarness tester_utils.StageHarness) error {
 	sort.Strings(actualValues)
 
 	expectedValuesStr := strings.Join(expectedValues, "\n")
-	actualValuesStr := strings.Join(expectedValues, "\n")
+	actualValuesStr := strings.Join(actualValues, "\n")
 
 	if expectedValuesStr != actualValuesStr {
 		return fmt.Errorf("Expected %v to be returned as values, got: %v", expectedValues, actualValues)
