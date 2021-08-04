@@ -3,6 +3,8 @@ package internal
 import (
 	"fmt"
 	"strings"
+
+	"github.com/bxcodec/faker/v3"
 )
 
 type Table struct {
@@ -60,4 +62,21 @@ func (r Record) ValuesFor(columnNames []string) []string {
 	}
 
 	return values
+}
+
+func generateRandomTable() Table {
+	return Table{
+		Name:        randomStringShort(),
+		ColumnNames: randomStringsShort(NUMBER_OF_COLUMNS),
+	}
+}
+
+func generateRandomRecord(table Table) Record {
+	record := Record{ColumnNamesToValuesMap: map[string]string{}}
+
+	for _, columnName := range table.ColumnNames {
+		record.ColumnNamesToValuesMap[columnName] = faker.FirstNameFemale()
+	}
+
+	return record
 }

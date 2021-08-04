@@ -7,8 +7,6 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bxcodec/faker/v3"
-
 	_ "modernc.org/sqlite"
 
 	tester_utils "github.com/codecrafters-io/tester-utils"
@@ -82,21 +80,4 @@ func testReadMultipleColumns(stageHarness tester_utils.StageHarness) error {
 	}
 
 	return nil
-}
-
-func generateRandomTable() Table {
-	return Table{
-		Name:        randomStringShort(),
-		ColumnNames: randomStringsShort(NUMBER_OF_COLUMNS),
-	}
-}
-
-func generateRandomRecord(table Table) Record {
-	record := Record{ColumnNamesToValuesMap: map[string]string{}}
-
-	for _, columnName := range table.ColumnNames {
-		record.ColumnNamesToValuesMap[columnName] = faker.FirstNameFemale()
-	}
-
-	return record
 }
