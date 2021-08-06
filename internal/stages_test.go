@@ -75,6 +75,28 @@ func TestReadSingleColumnSuccess(t *testing.T) {
 	}
 }
 
+func TestMultipleColumnsSuccess(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
+
+	exitCode := runCLIStage("read_multiple_columns", "test_helpers/pass_all") // TODO: Change to use custom
+	if !assert.Equal(t, 0, exitCode) {
+		failWithMockerOutput(t, m)
+	}
+}
+
+func TestTableScanSuccess(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
+
+	exitCode := runCLIStage("table_scan", "test_helpers/pass_all") // TODO: Change to use custom
+	if !assert.Equal(t, 0, exitCode) {
+		failWithMockerOutput(t, m)
+	}
+}
+
 func runCLIStage(slug string, dir string) (exitCode int) {
 	cwd, err := os.Getwd()
 	if err != nil {
