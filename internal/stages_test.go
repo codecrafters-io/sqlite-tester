@@ -97,6 +97,17 @@ func TestTableScanSuccess(t *testing.T) {
 	}
 }
 
+func TestIndexScanSuccess(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
+
+	exitCode := runCLIStage("index_scan", "test_helpers/pass_all") // TODO: Change to use custom
+	if !assert.Equal(t, 0, exitCode) {
+		failWithMockerOutput(t, m)
+	}
+}
+
 func runCLIStage(slug string, dir string) (exitCode int) {
 	cwd, err := os.Getwd()
 	if err != nil {

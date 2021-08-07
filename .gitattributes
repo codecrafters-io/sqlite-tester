@@ -1,0 +1,2 @@
+internal/test_databases/superheroes.db filter=lfs diff=lfs merge=lfs -text
+internal/test_databases/companies.db filter=lfs diff=lfs merge=lfs -text

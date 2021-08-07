@@ -44,5 +44,11 @@ var testerDefinition = testerutils.TesterDefinition{
 			TestFunc:                testTableScan,
 			ShouldRunPreviousStages: true,
 		},
+		{
+			Slug:                    "index_scan",
+			Title:                   "Filter data using an index scan",
+			TestFunc:                testIndexScan,
+			ShouldRunPreviousStages: true,
+		},
 	},
 }
