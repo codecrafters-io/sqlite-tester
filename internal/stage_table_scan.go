@@ -48,7 +48,7 @@ func testTableScan(stageHarness tester_utils.StageHarness) error {
 	randomTestQueries := shuffle(testQueriesForSuperheroes)[0:3]
 
 	for _, testQuery := range randomTestQueries {
-		logger.Infof("Executing: ./your_sqlite3.sh test.db \"%v\"", testQuery)
+		logger.Infof("$ ./your_sqlite3.sh test.db \"%v\"", testQuery)
 		result, err := executable.Run("test.db", testQuery)
 		if err != nil {
 			return err

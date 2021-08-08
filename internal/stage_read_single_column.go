@@ -90,7 +90,7 @@ func testReadSingleColumn(stageHarness tester_utils.StageHarness) error {
 		return err
 	}
 
-	logger.Infof("Executing: ./your_sqlite3.sh test.db \"select %v from %v\"", testColumnName, tableName)
+	logger.Infof("$ ./your_sqlite3.sh test.db \"select %v from %v\"", testColumnName, tableName)
 	result, err := executable.Run("test.db", fmt.Sprintf("select %v from %v", testColumnName, tableName))
 	if err != nil {
 		return err

@@ -43,7 +43,7 @@ func testTableNames(stageHarness tester_utils.StageHarness) error {
 		}
 	}
 
-	logger.Infof("Executing: ./your_sqlite3.sh test.db .tables")
+	logger.Infof("$ ./your_sqlite3.sh test.db .tables")
 	result, err := executable.Run("test.db", ".tables")
 	if err != nil {
 		return err

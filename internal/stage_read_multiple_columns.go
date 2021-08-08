@@ -57,7 +57,7 @@ func testReadMultipleColumns(stageHarness tester_utils.StageHarness) error {
 
 	selectColumnsSql := fmt.Sprintf("select %v from %v", strings.Join(testColumnNames, ", "), table.Name)
 
-	logger.Infof("Executing: ./your_sqlite3.sh test.db \"%v\"", selectColumnsSql)
+	logger.Infof("$ ./your_sqlite3.sh test.db \"%v\"", selectColumnsSql)
 	result, err := executable.Run("test.db", selectColumnsSql)
 	if err != nil {
 		return err
