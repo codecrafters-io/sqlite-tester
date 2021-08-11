@@ -39,6 +39,12 @@ var testerDefinition = testerutils.TesterDefinition{
 			ShouldRunPreviousStages: true,
 		},
 		{
+			Slug:                    "where",
+			Title:                   "Filter data with a WHERE clause",
+			TestFunc:                testWhere,
+			ShouldRunPreviousStages: true,
+		},
+		{
 			Slug:                    "table_scan",
 			Title:                   "Filter data using a full-table scan",
 			TestFunc:                testTableScan,

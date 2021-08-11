@@ -54,6 +54,10 @@ func (r Record) ValuesSQL(columnNames []string) string {
 	return fmt.Sprintf("(%v)", strings.Join(quotedValues, ", "))
 }
 
+func (r Record) ValueFor(columnName string) string {
+	return r.ValuesFor([]string{columnName})[0]
+}
+
 func (r Record) ValuesFor(columnNames []string) []string {
 	values := []string{}
 

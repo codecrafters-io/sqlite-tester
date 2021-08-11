@@ -86,6 +86,17 @@ func TestMultipleColumnsSuccess(t *testing.T) {
 	}
 }
 
+func TestWhereSuccess(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
+
+	exitCode := runCLIStage("where", "test_helpers/pass_all") // TODO: Change to use custom
+	if !assert.Equal(t, 0, exitCode) {
+		failWithMockerOutput(t, m)
+	}
+}
+
 func TestTableScanSuccess(t *testing.T) {
 	m := NewStdIOMocker()
 	m.Start()
