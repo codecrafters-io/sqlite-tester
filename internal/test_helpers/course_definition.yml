@@ -104,7 +104,7 @@ stages:
       ```
 
       Notice how the table names are formatted with more than one space between each other? That's because `sqlite3`
-      formats its output so that every value has a fixed-width. You program doesn't need to mimic this behaviour. Using
+      formats its output so that every value has a fixed-width. Your program doesn't need to mimic this behaviour. Using
       just one space as a separator should work. Both `apples oranges` and <code>apples &nbsp; oranges</code> will pass
       our tests.
     marketing_md: |
