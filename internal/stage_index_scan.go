@@ -14,9 +14,6 @@ import (
 	tester_utils "github.com/codecrafters-io/tester-utils"
 )
 
-//go:embed test_databases/companies.db
-var companiesDbContent []byte
-
 var testQueriesForCompanies = []string{
 	"SELECT id, name FROM companies WHERE country = 'micronesia'",
 	"SELECT id, name FROM companies WHERE country = 'north korea'",
@@ -32,6 +29,11 @@ func testIndexScan(stageHarness tester_utils.StageHarness) error {
 	executable := stageHarness.Executable
 
 	_ = os.Remove("./test.db")
+
+	companiesDbContent, err := Asset("internal/test_databases/companies.db")
+	if err != nil {
+		return err
+	}
 
 	if err := os.WriteFile("./test.db", companiesDbContent, 0666); err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")

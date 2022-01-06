@@ -11,11 +11,13 @@ jobs:
         with:
           lfs: true
       - name: Set up Go
-        uses: actions/setup-go@v1
+        uses: actions/setup-go@v2
         with:
           go-version: 1.16.x
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
           python-version: '3.8'
+      - run: go get -u github.com/go-bindata/go-bindata/...
+      - run: go-bindata -debug -o ./internal/bindata.go -pkg internal internal/test_databases
       - run: make test
