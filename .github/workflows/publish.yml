@@ -19,6 +19,8 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: 1.16.x
+      - run: go get -u github.com/go-bindata/go-bindata/...
+      - run: go-bindata -o ./internal/bindata.go -pkg internal internal/test_databases
       - run: "sudo apt-get install gcc-multilib g++-multilib"
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
@@ -39,6 +41,8 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: 1.16.x
+      - run: go get -u github.com/go-bindata/go-bindata/...
+      - run: go-bindata -o ./internal/bindata.go -pkg internal internal/test_databases
       - run: "sudo apt-get install gcc-multilib g++-multilib"
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
