@@ -26,7 +26,7 @@ jobs:
         uses: goreleaser/goreleaser-action@v1
         with:
           version: v0.129.0
-          args: release -f main.goreleaser.yml --rm-dist
+          args: release -f main.goreleaser.yml --rm-dist --skip-validate # --skip-validate required for bindata
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
