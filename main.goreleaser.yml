@@ -1,5 +1,6 @@
 builds:
   - main: ./cmd/tester/main.go
+    binary: tester
     env:
       - CGO_ENABLED=0
     goos:
@@ -7,4 +8,6 @@ builds:
 
 archives:
   - name_template: "{{ .Tag }}_{{ .Os }}_{{ .Arch }}"
-    format: binary
+    format: tar.gz
+    files:
+      - test.sh
