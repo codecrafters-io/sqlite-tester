@@ -16,17 +16,15 @@ jobs:
       - name: Unshallow
         run: git fetch --prune --unshallow
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v1
         with:
           go-version: 1.16.x
-      - run: go get -u github.com/go-bindata/go-bindata/...
-      - run: go-bindata -o ./internal/bindata.go -pkg internal internal/test_databases
       - run: "sudo apt-get install gcc-multilib g++-multilib"
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
         with:
           version: v0.129.0
-          args: release -f main.goreleaser.yml --rm-dist --skip-validate # --skip-validate required for bindata
+          args: release -f main.goreleaser.yml --rm-dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,11 +36,9 @@ jobs:
       - name: Unshallow
         run: git fetch --prune --unshallow
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v1
         with:
           go-version: 1.16.x
-      - run: go get -u github.com/go-bindata/go-bindata/...
-      - run: go-bindata -o ./internal/bindata.go -pkg internal internal/test_databases
       - run: "sudo apt-get install gcc-multilib g++-multilib"
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
