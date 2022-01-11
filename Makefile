@@ -12,7 +12,7 @@ build:
 	go build -o dist/starter.out ./cmd/starter_tester
 
 test:
-	go test -v ./internal/
+	TESTER_DIR=$(shell pwd) go test -v ./internal/
 
 test_and_watch:
 	onchange '**/*' -- go test -v ./internal/
