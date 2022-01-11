@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"os/exec"
 	"path"
 	"sort"
 	"strings"
@@ -29,13 +30,7 @@ func testTableScan(stageHarness tester_utils.StageHarness) error {
 
 	_ = os.Remove("./test.db")
 
-	superheroesDbContent, err := os.ReadFile(path.Join(os.Getenv("TESTER_DIR"), "superheroes.db"))
-	if err != nil {
-		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
-		return err
-	}
-
-	if err := os.WriteFile("./test.db", superheroesDbContent, 0666); err != nil {
+	if err := exec.Command("cp", path.Join(os.Getenv("TESTER_DIR"), "superheroes.db"), "./test.db").Run(); err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
 	}
