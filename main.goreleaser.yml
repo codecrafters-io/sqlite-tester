@@ -11,3 +11,5 @@ archives:
     format: tar.gz
     files:
       - test.sh
+      - superheroes.db
+      - companies.db

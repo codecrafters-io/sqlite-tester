@@ -4,18 +4,14 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"path"
 	"sort"
 	"strings"
-
-	_ "embed"
 
 	_ "modernc.org/sqlite"
 
 	tester_utils "github.com/codecrafters-io/tester-utils"
 )
-
-//go:embed test_databases/superheroes.db
-var superheroesDbContent []byte
 
 var testQueriesForSuperheroes = []string{
 	"SELECT id, name FROM superheroes WHERE eye_color = 'Pink Eyes'",
@@ -32,6 +28,12 @@ func testTableScan(stageHarness tester_utils.StageHarness) error {
 	executable := stageHarness.Executable
 
 	_ = os.Remove("./test.db")
+
+	superheroesDbContent, err := os.ReadFile(path.Join(os.Getenv("TESTER_DIR"), "superheroes.db"))
+	if err != nil {
+		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
+		return err
+	}
 
 	if err := os.WriteFile("./test.db", superheroesDbContent, 0666); err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
