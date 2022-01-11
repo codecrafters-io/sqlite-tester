@@ -29,7 +29,7 @@ func testTableScan(stageHarness tester_utils.StageHarness) error {
 
 	_ = os.Remove("./test.db")
 
-	superheroesDbContent, err := os.ReadFile(path.Join(os.Getenv("TESTER_DIR"), "internal", "test_databases", "superheroes.db"))
+	superheroesDbContent, err := os.ReadFile(path.Join(os.Getenv("TESTER_DIR"), "superheroes.db"))
 	if err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
