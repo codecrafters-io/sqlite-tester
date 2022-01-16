@@ -1,6 +1,8 @@
 package internal
 
 import (
+	"time"
+
 	testerutils "github.com/codecrafters-io/tester-utils"
 )
 
@@ -55,6 +57,7 @@ var testerDefinition = testerutils.TesterDefinition{
 			Title:                   "Filter data using an index scan",
 			TestFunc:                testIndexScan,
 			ShouldRunPreviousStages: true,
+			Timeout:                 20 * time.Second,
 		},
 	},
 }
