@@ -13,7 +13,7 @@ import (
 	tester_utils "github.com/codecrafters-io/tester-utils"
 )
 
-func testTableNames(stageHarness tester_utils.StageHarness) error {
+func testTableNames(stageHarness *tester_utils.StageHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 

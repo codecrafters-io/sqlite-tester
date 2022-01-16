@@ -24,7 +24,7 @@ var testQueriesForCompanies = []string{
 	"SELECT id, name FROM companies WHERE country = 'chad'",
 }
 
-func testIndexScan(stageHarness tester_utils.StageHarness) error {
+func testIndexScan(stageHarness *tester_utils.StageHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 

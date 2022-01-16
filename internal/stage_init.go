@@ -11,7 +11,7 @@ import (
 	tester_utils "github.com/codecrafters-io/tester-utils"
 )
 
-func testInit(stageHarness tester_utils.StageHarness) error {
+func testInit(stageHarness *tester_utils.StageHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 

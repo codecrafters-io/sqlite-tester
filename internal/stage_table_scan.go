@@ -24,7 +24,7 @@ var testQueriesForSuperheroes = []string{
 	"SELECT id, name FROM superheroes WHERE hair_color = 'Gold Hair'",
 }
 
-func testTableScan(stageHarness tester_utils.StageHarness) error {
+func testTableScan(stageHarness *tester_utils.StageHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
