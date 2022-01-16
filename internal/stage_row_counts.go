@@ -11,7 +11,7 @@ import (
 	tester_utils "github.com/codecrafters-io/tester-utils"
 )
 
-func testRowCounts(stageHarness tester_utils.StageHarness) error {
+func testRowCounts(stageHarness *tester_utils.StageHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
