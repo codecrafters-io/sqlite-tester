@@ -49,8 +49,10 @@ func testRowCounts(stageHarness *tester_utils.StageHarness) error {
 		return err
 	}
 
-	logger.Infof("$ ./your_sqlite3.sh test.db \"select count(*) from test1\"")
-	result, err := executable.Run("test.db", fmt.Sprintf("select count(*) from %v", tableName))
+	sqlQuery := fmt.Sprintf("select count(*) from %v", tableName)
+
+	logger.Infof("$ ./your_sqlite3.sh test.db \"%s\"", sqlQuery)
+	result, err := executable.Run("test.db", sqlQuery)
 	if err != nil {
 		return err
 	}
