@@ -36,6 +36,7 @@ func testReadSingleColumn(stageHarness *tester_utils.StageHarness) error {
 	numberOfRecords := 4 + randomInt(4)
 
 	logger.Debugf("Creating test.db with table: %v", tableName)
+	logger.Debugf("Columns in table: %s", strings.Join(allColumnNames, ", "))
 
 	columnWithTypeList := []string{}
 
