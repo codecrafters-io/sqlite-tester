@@ -29,6 +29,7 @@ func testReadMultipleColumns(stageHarness *tester_utils.StageHarness) error {
 	numberOfRecords := 4 + randomInt(4)
 
 	logger.Debugf("Creating test.db with table: %v", table.Name)
+	logger.Debugf("Columns in table: %s", strings.Join(table.ColumnNames, ", "))
 
 	_, err = db.Exec(table.CreateTableSQL())
 	if err != nil {
