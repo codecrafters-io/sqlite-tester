@@ -20,7 +20,7 @@ func (t Table) CreateTableSQL() string {
 	}
 
 	return fmt.Sprintf(`
-      create table %v (id primary key, %v);
+      create table %v (id integer primary key, %v);
     `, t.Name, strings.Join(columnWithTypeList, ","))
 }
 
