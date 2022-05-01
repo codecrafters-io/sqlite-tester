@@ -45,7 +45,7 @@ func testReadSingleColumn(stageHarness *tester_utils.StageHarness) error {
 	}
 
 	createTableSql := fmt.Sprintf(`
-      create table %v (id primary key, %v);
+      create table %v (id integer primary key, %v);
     `, tableName, strings.Join(columnWithTypeList, ","))
 
 	_, err = db.Exec(createTableSql)

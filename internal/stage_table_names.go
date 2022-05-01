@@ -33,7 +33,7 @@ func testTableNames(stageHarness *tester_utils.StageHarness) error {
 
 	for _, tableName := range tableNames {
 		sqlStmt := fmt.Sprintf(`
-			create table %v (id integer not null primary key, name text);
+			create table %v (id integer primary key, name text);
 		`, tableName)
 
 		_, err = db.Exec(sqlStmt)

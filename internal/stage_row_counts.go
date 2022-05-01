@@ -29,7 +29,7 @@ func testRowCounts(stageHarness *tester_utils.StageHarness) error {
 
 	logger.Debugf("Creating table '%v' with %v rows", tableName, rowCount)
 
-	createTableSql := fmt.Sprintf(`create table %v (id integer not null primary key, name text);`, tableName)
+	createTableSql := fmt.Sprintf(`create table %v (id integer primary key, name text);`, tableName)
 
 	_, err = db.Exec(createTableSql)
 	if err != nil {
