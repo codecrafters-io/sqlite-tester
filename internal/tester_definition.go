@@ -51,6 +51,7 @@ var testerDefinition = testerutils.TesterDefinition{
 			Title:                   "Filter data using a full-table scan",
 			TestFunc:                testTableScan,
 			ShouldRunPreviousStages: true,
+			Timeout:                 20 * time.Second,
 		},
 		{
 			Slug:                    "index_scan",
