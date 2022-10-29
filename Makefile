@@ -9,7 +9,6 @@ release:
 
 build:
 	go build -o dist/main.out ./cmd/tester
-	go build -o dist/starter.out ./cmd/starter_tester
 
 test:
 	TESTER_DIR=$(shell pwd) go test -v ./internal/
