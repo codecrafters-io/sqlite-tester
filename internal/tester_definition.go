@@ -48,14 +48,14 @@ var testerDefinition = testerutils.TesterDefinition{
 		},
 		{
 			Slug:                    "table_scan",
-			Title:                   "Filter data using a full-table scan",
+			Title:                   "Retrieve data using a full-table scan",
 			TestFunc:                testTableScan,
 			ShouldRunPreviousStages: true,
 			Timeout:                 60 * time.Second, // TODO: Turn this back down once we're able to figure out why running inside firecracker takes so long
 		},
 		{
 			Slug:                    "index_scan",
-			Title:                   "Filter data using an index scan",
+			Title:                   "Retrieve data using an index",
 			TestFunc:                testIndexScan,
 			ShouldRunPreviousStages: true,
 			Timeout:                 20 * time.Second,
