@@ -1,5 +1,5 @@
-github.com/bxcodec/faker/v3 v3.6.0 h1:Meuh+M6pQJsQJwxVALq6H5wpDzkZ4pStV9pmH7gbKKs=
-github.com/bxcodec/faker/v3 v3.6.0/go.mod h1:gF31YgnMSMKgkvl+fyEo1xuSMbEuieyqfeslGYFjneM=
+github.com/bxcodec/faker/v3 v3.8.1 h1:qO/Xq19V6uHt2xujwpaetgKhraGCapqY2CRWGD/SqcM=
+github.com/bxcodec/faker/v3 v3.8.1/go.mod h1:DdSDccxF5msjFo5aO4vrobRQ8nIApg8kq3QWPEQD6+o=
 github.com/codecrafters-io/tester-utils v0.1.46 h1:kchXzxm6FLrR06Ab1/0iaOi9JiHzosCTzcg6vlw4yXg=
 github.com/codecrafters-io/tester-utils v0.1.46/go.mod h1:VifsWEvXrRB18l2+rkE7gwuzWRhGX4AffJ01VTgMYfw=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
