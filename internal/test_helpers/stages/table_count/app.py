@@ -17,8 +17,7 @@ def read_page_size(database_file_path):
 
         return int.from_bytes(database_file.read(2), "big")
 
-
-def read_sqlite_schema_rows(database_file_path):
+if command == ".dbinfo":
     with open(database_file_path, "rb") as database_file:
         # Refer to https://www.sqlite.org/fileformat.html for file format specification
         header_string = database_file.read(16)
@@ -59,15 +58,7 @@ def read_sqlite_schema_rows(database_file_path):
                 'sql': record[4],
             })
 
-        return sqlite_schema_rows
-
-
-if command == ".dbinfo":
-    sqlite_schema_rows = read_sqlite_schema_rows(database_file_path)
-    print(f"database page size: {read_page_size(database_file_path)}")
-    print(f"number of tables: {len(sqlite_schema_rows)}")
-if command == ".tables":
-    sqlite_schema_rows = read_sqlite_schema_rows(database_file_path)
-    print(' '.join(sorted([r['tbl_name'].decode('utf-8') for r in sqlite_schema_rows])))
+        print(f"database page size: {read_page_size(database_file_path)}")
+        print(f"number of tables: {len(sqlite_schema_rows)}")
 else:
     print(f"Invalid command: {command}")
