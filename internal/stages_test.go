@@ -19,7 +19,7 @@ func TestInitFailure(t *testing.T) {
 		failWithMockerOutput(t, m)
 	}
 	assert.Contains(t, m.ReadStdout(), "nothing")
-	assert.Contains(t, m.ReadStdout(), "number of tables")
+	assert.Contains(t, m.ReadStdout(), "database page size")
 	assert.Contains(t, m.ReadStdout(), "Test failed")
 }
 
@@ -34,12 +34,39 @@ func TestInitSuccess(t *testing.T) {
 	}
 }
 
+func TestTableCountFailure(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
+
+	exitCode := runCLIStage("table_count", "test_helpers/stages/init")
+	if !assert.Equal(t, 1, exitCode) {
+		failWithMockerOutput(t, m)
+	}
+
+	m.End()
+
+	assert.Contains(t, m.ReadStdout(), "number of tables")
+	assert.Contains(t, m.ReadStdout(), "Test failed")
+}
+
+func TestTableCountSuccess(t *testing.T) {
+	m := NewStdIOMocker()
+	m.Start()
+	defer m.End()
+
+	exitCode := runCLIStage("table_count", "test_helpers/stages/table_count")
+	if !assert.Equal(t, 0, exitCode) {
+		failWithMockerOutput(t, m)
+	}
+}
+
 func TestTableNamesFailure(t *testing.T) {
 	m := NewStdIOMocker()
 	m.Start()
 	defer m.End()
 
-	exitCode := runCLIStage("table_names", "test_helpers/stages/init")
+	exitCode := runCLIStage("table_names", "test_helpers/stages/table_count")
 	if !assert.Equal(t, 1, exitCode) {
 		failWithMockerOutput(t, m)
 	}
