@@ -17,27 +17,21 @@ func testInit(stageHarness *tester_utils.StageHarness) error {
 
 	_ = os.Remove("./test.db")
 
-	db, err := sql.Open("sqlite", "./test.db")
+	pageSizes := []int{512, 1024, 2048, 4096, 8192, 16384, 32768}
+	pageSize := pageSizes[randomInt(len(pageSizes))]
+
+	logger.Debugf("Creating test database with page size %d: test.db", pageSize)
+	db, err := sql.Open("sqlite", fmt.Sprintf("./test.db?_pragma=page_size(%d)", pageSize))
 	if err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
 	}
 	defer db.Close()
 
-	tableNames := randomStringsShort(2 + randomInt(7))
-
-	logger.Debugf("Creating test database with %v tables: test.db", len(tableNames))
-
-	for _, tableName := range tableNames {
-		sqlStmt := fmt.Sprintf(`
-			create table %v (id integer primary key, name text);
-		`, tableName)
-
-		_, err = db.Exec(sqlStmt)
-		if err != nil {
-			logger.Errorf("Failed to create test table, this is a CodeCrafters error.")
-			return err
-		}
+	_, err = db.Exec("CREATE TABLE test (id integer primary key, name text);")
+	if err != nil {
+		logger.Errorf("Failed to create test table, this is a CodeCrafters error.")
+		return err
 	}
 
 	logger.Infof("$ ./your_sqlite3.sh test.db .dbinfo")
@@ -46,10 +40,10 @@ func testInit(stageHarness *tester_utils.StageHarness) error {
 		return err
 	}
 
-	numberOfTablesRegex := regexp.MustCompile(fmt.Sprintf("number of tables:\\s+%v", len(tableNames)))
-	numberOfTablesFriendlyPattern := fmt.Sprintf("number of tables: %v", len(tableNames))
+	databasePageSizeRegex := regexp.MustCompile(fmt.Sprintf("database page size:\\s+%v", pageSize))
+	databasePageSizeFriendlyPattern := fmt.Sprintf("database page size: %v", pageSize)
 
-	if err = assertStdoutMatchesRegex(result, *numberOfTablesRegex, numberOfTablesFriendlyPattern); err != nil {
+	if err = assertStdoutMatchesRegex(result, *databasePageSizeRegex, databasePageSizeFriendlyPattern); err != nil {
 		return err
 	}
 
