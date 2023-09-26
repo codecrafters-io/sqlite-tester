@@ -25,6 +25,8 @@ var testQueriesForCompanies = []string{
 }
 
 func testIndexScan(stageHarness *tester_utils.StageHarness) error {
+	initRandom()
+
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 

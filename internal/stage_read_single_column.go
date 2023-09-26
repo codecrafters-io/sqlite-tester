@@ -17,6 +17,8 @@ import (
 const NUMBER_OF_COLUMNS = 5
 
 func testReadSingleColumn(stageHarness *tester_utils.StageHarness) error {
+	initRandom()
+
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 

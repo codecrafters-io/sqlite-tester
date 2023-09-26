@@ -1,16 +1,15 @@
 package internal
 
 import (
-	"fmt"
 	"os"
-	"path"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	tester_utils_testing "github.com/codecrafters-io/tester-utils/testing"
 )
 
 func TestStages(t *testing.T) {
+	os.Setenv("CODECRAFTERS_RANDOM_SEED", "1234567890")
+
 	testCases := map[string]tester_utils_testing.TesterOutputTestCase{
 		"init_failure": {
 			UntilStageSlug: "init",

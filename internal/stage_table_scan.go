@@ -25,6 +25,8 @@ var testQueriesForSuperheroes = []string{
 }
 
 func testTableScan(stageHarness *tester_utils.StageHarness) error {
+	initRandom()
+
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
