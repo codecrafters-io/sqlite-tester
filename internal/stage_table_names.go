@@ -14,6 +14,8 @@ import (
 )
 
 func testTableNames(stageHarness *tester_utils.StageHarness) error {
+	initRandom()
+
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
