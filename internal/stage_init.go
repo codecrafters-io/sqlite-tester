@@ -17,6 +17,11 @@ func testInit(stageHarness *tester_utils.StageHarness) error {
 
 	_ = os.Remove("./test.db")
 
+	// Avoid messing with the user's repo since course-sdk checks for uncommitted changes after stage 1
+	stageHarness.RegisterTeardownFunc(func() {
+		_ = os.Remove("./test.db")
+	})
+
 	pageSizes := []int{512, 1024, 2048, 4096, 8192, 16384, 32768}
 	pageSize := pageSizes[randomInt(len(pageSizes))]
 
