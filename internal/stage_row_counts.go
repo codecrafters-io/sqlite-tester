@@ -9,6 +9,7 @@ import (
 	_ "modernc.org/sqlite"
 
 	tester_utils "github.com/codecrafters-io/tester-utils"
+	testerutils_random "github.com/codecrafters-io/tester-utils/random"
 )
 
 func testRowCounts(stageHarness *tester_utils.StageHarness) error {
@@ -27,7 +28,7 @@ func testRowCounts(stageHarness *tester_utils.StageHarness) error {
 	defer db.Close()
 
 	tableName := randomStringShort()
-	rowCount := randomInt(200)
+	rowCount := testerutils_random.RandomInt(100, 200)
 
 	logger.Debugf("Creating table '%v' with %v rows", tableName, rowCount)
 
