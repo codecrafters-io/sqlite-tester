@@ -11,7 +11,7 @@ import (
 
 	_ "modernc.org/sqlite"
 
-	tester_utils "github.com/codecrafters-io/tester-utils"
+	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
 var testQueriesForSuperheroes = []string{
@@ -24,7 +24,7 @@ var testQueriesForSuperheroes = []string{
 	"SELECT id, name FROM superheroes WHERE hair_color = 'Gold Hair'",
 }
 
-func testTableScan(stageHarness *tester_utils.StageHarness) error {
+func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 	initRandom()
 
 	logger := stageHarness.Logger
