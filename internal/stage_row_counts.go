@@ -8,11 +8,11 @@ import (
 
 	_ "modernc.org/sqlite"
 
-	tester_utils "github.com/codecrafters-io/tester-utils"
 	testerutils_random "github.com/codecrafters-io/tester-utils/random"
+	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-func testRowCounts(stageHarness *tester_utils.StageHarness) error {
+func testRowCounts(stageHarness *test_case_harness.TestCaseHarness) error {
 	initRandom()
 
 	logger := stageHarness.Logger
