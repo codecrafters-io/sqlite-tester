@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/bxcodec/faker/v3 v3.6.0
-	github.com/codecrafters-io/tester-utils v0.2.17
+	github.com/codecrafters-io/tester-utils v0.2.18
 	modernc.org/sqlite v1.14.0
 )
 
