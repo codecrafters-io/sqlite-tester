@@ -12,6 +12,8 @@ github.com/codecrafters-io/tester-utils v0.2.17 h1:rO04TuOME773cZE729kIVOiXpZSq5
 github.com/codecrafters-io/tester-utils v0.2.17/go.mod h1:BeSLyqBpFxUwIm41QlnuRG7ZsabBXWE2Ga3LMFUXAPM=
 github.com/codecrafters-io/tester-utils v0.2.18 h1:fjIWERlzR1700Mogr8+30H3bYyLY+36KMU8ojloo3/0=
 github.com/codecrafters-io/tester-utils v0.2.18/go.mod h1:BeSLyqBpFxUwIm41QlnuRG7ZsabBXWE2Ga3LMFUXAPM=
+github.com/codecrafters-io/tester-utils v0.2.20 h1:t/IFFXOrSgRIoq6x4kUnRdjuai7EcwWH42Za25hvneA=
+github.com/codecrafters-io/tester-utils v0.2.20/go.mod h1:BeSLyqBpFxUwIm41QlnuRG7ZsabBXWE2Ga3LMFUXAPM=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dustin/go-humanize v1.0.0 h1:VSnTsYCnlFHaM2/igO1h6X3HA71jcobQuxemgkq4zYo=
@@ -70,6 +72,8 @@ golang.org/x/sys v0.14.0 h1:Vz7Qs629MkJkGyHxUlRHizWJRG2j8fbQKjELVSNhy7Q=
 golang.org/x/sys v0.14.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
 golang.org/x/sys v0.18.0 h1:DBdB3niSjOA/O0blCZBqDefyWNYveAYMNF1Wum0DYQ4=
 golang.org/x/sys v0.18.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
+golang.org/x/sys v0.19.0 h1:q5f1RH2jigJ1MoAWp2KTp3gm5zAGFUTarQZ5U386+4o=
+golang.org/x/sys v0.19.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.3/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
 golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
