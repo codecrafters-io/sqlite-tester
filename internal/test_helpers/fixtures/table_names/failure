@@ -1,6 +1,6 @@
 Debug = true
 
-[33m[stage-3] [0m[94mRunning tests for Stage #3: table_names[0m
+[33m[stage-3] [0m[94mRunning tests for Stage #3: sz4[0m
 [33m[stage-3] [0m[36mCreating test.db with tables: [banana chocolate coffee mango vanilla][0m
 [33m[stage-3] [0m[94m$ ./your_sqlite3.sh test.db .tables[0m
 [33m[your_program] [0mInvalid command: .tables
