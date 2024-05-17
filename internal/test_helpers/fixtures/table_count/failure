@@ -1,6 +1,6 @@
 Debug = true
 
-[33m[stage-2] [0m[94mRunning tests for Stage #2: table_count[0m
+[33m[stage-2] [0m[94mRunning tests for Stage #2: ce0[0m
 [33m[stage-2] [0m[36mCreating test database with 6 tables: test.db[0m
 [33m[stage-2] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
 [33m[your_program] [0mdatabase page size: 4096

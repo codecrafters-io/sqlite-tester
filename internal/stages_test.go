@@ -12,42 +12,42 @@ func TestStages(t *testing.T) {
 
 	testCases := map[string]tester_utils_testing.TesterOutputTestCase{
 		"init_failure": {
-			UntilStageSlug: "init",
+			UntilStageSlug: "dr6",
 			CodePath: "./test_helpers/stages/init_failure",
 			ExpectedExitCode: 1,
 			StdoutFixturePath: "./test_helpers/fixtures/init/failure",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"init_success": {
-			UntilStageSlug: "init",
+			UntilStageSlug: "dr6",
 			CodePath: "./test_helpers/stages/init",
 			ExpectedExitCode: 0,
 			StdoutFixturePath: "./test_helpers/fixtures/init/success",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"table_count_failure": {
-			UntilStageSlug: "table_count",
+			UntilStageSlug: "ce0",
 			CodePath: "./test_helpers/stages/init",
 			ExpectedExitCode: 1,
 			StdoutFixturePath: "./test_helpers/fixtures/table_count/failure",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"table_count_success": {
-			UntilStageSlug: "table_count",
+			UntilStageSlug: "ce0",
 			CodePath: "./test_helpers/stages/table_count",
 			ExpectedExitCode: 0,
 			StdoutFixturePath: "./test_helpers/fixtures/table_count/success",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"table_names_failure": {
-			UntilStageSlug: "table_names",
+			UntilStageSlug: "sz4",
 			CodePath: "./test_helpers/stages/table_count",
 			ExpectedExitCode: 1,
 			StdoutFixturePath: "./test_helpers/fixtures/table_names/failure",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"table_names_success": {
-			UntilStageSlug: "table_names",
+			UntilStageSlug: "sz4",
 			CodePath: "./test_helpers/stages/table_names",
 			ExpectedExitCode: 0,
 			StdoutFixturePath: "./test_helpers/fixtures/table_names/success",

@@ -1,6 +1,6 @@
 Debug = true
 
-[33m[stage-1] [0m[94mRunning tests for Stage #1: init[0m
+[33m[stage-1] [0m[94mRunning tests for Stage #1: dr6[0m
 [33m[stage-1] [0m[36mCreating test database with page size 8192: test.db[0m
 [33m[stage-1] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
 [33m[your_program] [0mdid nothing

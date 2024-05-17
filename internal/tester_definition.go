@@ -11,40 +11,40 @@ var testerDefinition = tester_definition.TesterDefinition{
 	ExecutableFileName: "your_sqlite3.sh",
 	TestCases: []tester_definition.TestCase{
 		{
-			Slug:     "init",
+			Slug:     "dr6",
 			TestFunc: testInit,
 		},
 		{
-			Slug:     "table_count",
+			Slug:     "ce0",
 			TestFunc: testTableCount,
 		},
 		{
-			Slug:     "table_names",
+			Slug:     "sz4",
 			TestFunc: testTableNames,
 		},
 		{
-			Slug:     "row_counts",
+			Slug:     "nd9",
 			TestFunc: testRowCounts,
 		},
 		{
-			Slug:     "read_single_column",
+			Slug:     "az9",
 			TestFunc: testReadSingleColumn,
 		},
 		{
-			Slug:     "read_multiple_columns",
+			Slug:     "vc9",
 			TestFunc: testReadMultipleColumns,
 		},
 		{
-			Slug:     "where",
+			Slug:     "rf3",
 			TestFunc: testWhere,
 		},
 		{
-			Slug:     "table_scan",
+			Slug:     "ws9",
 			TestFunc: testTableScan,
 			Timeout:  60 * time.Second, // TODO: Turn this back down once we're able to figure out why running inside firecracker takes so long
 		},
 		{
-			Slug:     "index_scan",
+			Slug:     "nz8",
 			TestFunc: testIndexScan,
 			Timeout:  20 * time.Second,
 		},
