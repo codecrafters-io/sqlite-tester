@@ -1,6 +1,9 @@
 dist
 venv
+
 sample.db
 test.db
 internal/test.db
-__pycache__
+
+__pycache__/
+.history/
