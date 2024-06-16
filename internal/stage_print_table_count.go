@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"path"
 	"regexp"
 
 	_ "modernc.org/sqlite"
@@ -42,7 +43,7 @@ func testTableCount(stageHarness *test_case_harness.TestCaseHarness) error {
 		}
 	}
 
-	logger.Infof("$ ./your_sqlite3.sh test.db .dbinfo")
+	logger.Infof("$ ./%v test.db .dbinfo", path.Base(executable.Path))
 	result, err := executable.Run("test.db", ".dbinfo")
 	if err != nil {
 		return err

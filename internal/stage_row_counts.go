@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"path"
 	"strings"
 
 	_ "modernc.org/sqlite"
@@ -54,7 +55,7 @@ func testRowCounts(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	sqlQuery := fmt.Sprintf("select count(*) from %v", tableName)
 
-	logger.Infof("$ ./your_sqlite3.sh test.db \"%s\"", sqlQuery)
+	logger.Infof("$ ./%v test.db \"%s\"", path.Base(executable.Path), sqlQuery)
 	result, err := executable.Run("test.db", sqlQuery)
 	if err != nil {
 		return err

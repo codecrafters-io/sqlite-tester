@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"path"
 	"sort"
 	"strings"
 
@@ -70,7 +71,7 @@ func testWhere(stageHarness *test_case_harness.TestCaseHarness) error {
 		filterColumnValue,
 	)
 
-	logger.Infof("$ ./your_sqlite3.sh test.db \"%v\"", selectColumnsSql)
+	logger.Infof("$ ./%v test.db \"%v\"", path.Base(executable.Path), selectColumnsSql)
 	result, err := executable.Run("test.db", selectColumnsSql)
 	if err != nil {
 		return err

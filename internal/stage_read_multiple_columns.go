@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"path"
 	"sort"
 	"strings"
 
@@ -60,7 +61,7 @@ func testReadMultipleColumns(stageHarness *test_case_harness.TestCaseHarness) er
 
 	selectColumnsSql := fmt.Sprintf("select %v from %v", strings.Join(testColumnNames, ", "), table.Name)
 
-	logger.Infof("$ ./your_sqlite3.sh test.db \"%v\"", selectColumnsSql)
+	logger.Infof("$ ./%v test.db \"%v\"", path.Base(executable.Path), selectColumnsSql)
 	result, err := executable.Run("test.db", selectColumnsSql)
 	if err != nil {
 		return err
