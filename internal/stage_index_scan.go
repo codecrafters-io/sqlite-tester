@@ -47,7 +47,7 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 	randomTestQueries := shuffle(testQueriesForCompanies)[0:2]
 
 	for _, testQuery := range randomTestQueries {
-		logger.Infof("$ ./your_sqlite3.sh test.db \"%v\"", testQuery)
+		logger.Infof("$ ./%v test.db \"%v\"", path.Base(executable.Path), testQuery)
 		result, err := executable.Run("test.db", testQuery)
 		if err != nil {
 			return err

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"path"
 	"regexp"
 	"sort"
 	"strings"
@@ -45,7 +46,7 @@ func testTableNames(stageHarness *test_case_harness.TestCaseHarness) error {
 		}
 	}
 
-	logger.Infof("$ ./your_sqlite3.sh test.db .tables")
+	logger.Infof("$ ./%v test.db .tables", path.Base(executable.Path))
 	result, err := executable.Run("test.db", ".tables")
 	if err != nil {
 		return err

@@ -7,8 +7,9 @@ import (
 )
 
 var testerDefinition = tester_definition.TesterDefinition{
-	AntiCheatTestCases: []tester_definition.TestCase{},
-	ExecutableFileName: "your_sqlite3.sh",
+	AntiCheatTestCases:       []tester_definition.TestCase{},
+	ExecutableFileName:       "your_program.sh",
+	LegacyExecutableFileName: "your_sqlite3.sh",
 	TestCases: []tester_definition.TestCase{
 		{
 			Slug:     "dr6",
