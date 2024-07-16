@@ -1,7 +1,7 @@
 github.com/bxcodec/faker/v3 v3.6.0 h1:Meuh+M6pQJsQJwxVALq6H5wpDzkZ4pStV9pmH7gbKKs=
 github.com/bxcodec/faker/v3 v3.6.0/go.mod h1:gF31YgnMSMKgkvl+fyEo1xuSMbEuieyqfeslGYFjneM=
-github.com/codecrafters-io/tester-utils v0.2.26 h1:cHc4m34PPXND0jKRDRW977iToVPLWX3O2ETaSkwc1l8=
-github.com/codecrafters-io/tester-utils v0.2.26/go.mod h1:VgP0WmmRsA8L1urWGMXPW4Zv5jcwHwR0LdKZ8ZAEFT4=
+github.com/codecrafters-io/tester-utils v0.2.33 h1:sEJg+41qvHSizPWYYR9est8DZ9MRofus06DVBZN1o9o=
+github.com/codecrafters-io/tester-utils v0.2.33/go.mod h1:VgP0WmmRsA8L1urWGMXPW4Zv5jcwHwR0LdKZ8ZAEFT4=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dustin/go-humanize v1.0.0 h1:VSnTsYCnlFHaM2/igO1h6X3HA71jcobQuxemgkq4zYo=
