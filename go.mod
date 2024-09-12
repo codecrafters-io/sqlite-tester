@@ -6,7 +6,7 @@ toolchain go1.22.1
 
 require (
 	github.com/bxcodec/faker/v3 v3.6.0
-	github.com/codecrafters-io/tester-utils v0.2.34
+	github.com/codecrafters-io/tester-utils v0.2.37
 	modernc.org/sqlite v1.14.0
 )
 
