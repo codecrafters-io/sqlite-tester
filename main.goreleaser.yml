@@ -3,8 +3,8 @@ builds:
     binary: tester
     env:
       - CGO_ENABLED=0
-    goos:
-      - linux
+    goarch: [amd64, arm64]
+    goos: [linux, darwin]
 
 archives:
   - name_template: "{{ .Tag }}_{{ .Os }}_{{ .Arch }}"
