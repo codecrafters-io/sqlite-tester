@@ -1,8 +1,8 @@
 Debug = true
 
-[33m[stage-3] [0m[94mRunning tests for Stage #3: sz4[0m
-[33m[stage-3] [0m[36mCreating test.db with tables: [banana chocolate coffee mango vanilla][0m
-[33m[stage-3] [0m[94m$ ./your_sqlite3.sh test.db .tables[0m
+[33m[tester::#SZ4] [0m[94mRunning tests for Stage #SZ4 (sz4)[0m
+[33m[tester::#SZ4] [0m[36mCreating test.db with tables: [apple blueberry grape orange strawberry][0m
+[33m[tester::#SZ4] [0m[94m$ ./your_sqlite3.sh test.db .tables[0m
 [33m[your_program] [0mInvalid command: .tables
-[33m[stage-3] [0m[91mExpected stdout to contain "banana chocolate coffee mango vanilla", got: "Invalid command: .tables\n"[0m
-[33m[stage-3] [0m[91mTest failed[0m
+[33m[tester::#SZ4] [0m[91mExpected stdout to contain "apple blueberry grape orange strawberry", got: "Invalid command: .tables\n"[0m
+[33m[tester::#SZ4] [0m[91mTest failed[0m
