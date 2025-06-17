@@ -32,7 +32,7 @@ func testReadSingleColumn(stageHarness *test_case_harness.TestCaseHarness) error
 	defer db.Close()
 
 	tableName := random.RandomString()
-	allColumnNames := random.RandomStrings(NUMBER_OF_COLUMNS)
+	allColumnNames := random.RandomWords(NUMBER_OF_COLUMNS)
 	testColumnIndex := random.RandomInt(0, NUMBER_OF_COLUMNS)
 	testColumnName := allColumnNames[testColumnIndex]
 	numberOfRecords := 4 + random.RandomInt(0, 4)

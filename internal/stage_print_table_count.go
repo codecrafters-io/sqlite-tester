@@ -26,7 +26,7 @@ func testTableCount(stageHarness *test_case_harness.TestCaseHarness) error {
 	}
 	defer db.Close()
 
-	tableNames := random.RandomStrings(2 + random.RandomInt(0, 7))
+	tableNames := random.RandomWords(2 + random.RandomInt(0, 7))
 
 	logger.Debugf("Creating test database with %v tables: test.db", len(tableNames))
 
