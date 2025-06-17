@@ -12,14 +12,13 @@ import (
 
 	_ "modernc.org/sqlite"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
 const NUMBER_OF_COLUMNS = 5
 
 func testReadSingleColumn(stageHarness *test_case_harness.TestCaseHarness) error {
-	initRandom()
-
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
@@ -32,11 +31,11 @@ func testReadSingleColumn(stageHarness *test_case_harness.TestCaseHarness) error
 	}
 	defer db.Close()
 
-	tableName := randomStringShort()
-	allColumnNames := randomStringsShort(NUMBER_OF_COLUMNS)
-	testColumnIndex := randomInt(NUMBER_OF_COLUMNS)
+	tableName := random.RandomWord()
+	allColumnNames := random.RandomWords(NUMBER_OF_COLUMNS)
+	testColumnIndex := random.RandomInt(0, NUMBER_OF_COLUMNS)
 	testColumnName := allColumnNames[testColumnIndex]
-	numberOfRecords := 4 + randomInt(4)
+	numberOfRecords := 4 + random.RandomInt(0, 4)
 
 	logger.Debugf("Creating test.db with table: %v", tableName)
 	logger.Debugf("Columns in table: %s", strings.Join(allColumnNames, ", "))

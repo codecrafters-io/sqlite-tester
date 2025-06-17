@@ -11,12 +11,11 @@ import (
 
 	_ "modernc.org/sqlite"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
 func testTableNames(stageHarness *test_case_harness.TestCaseHarness) error {
-	initRandom()
-
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
@@ -29,7 +28,7 @@ func testTableNames(stageHarness *test_case_harness.TestCaseHarness) error {
 	}
 	defer db.Close()
 
-	tableNames := randomStringsShort(5)
+	tableNames := random.RandomWords(5)
 	sort.Strings(tableNames)
 
 	logger.Debugf("Creating test.db with tables: %v", tableNames)
@@ -52,8 +51,8 @@ func testTableNames(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 
-	tableNamesRegex := regexp.MustCompile(fmt.Sprintf(strings.Join(tableNames, "\\s+")))
-	tableNamesFriendlyPattern := fmt.Sprintf(strings.Join(tableNames, " "))
+	tableNamesRegex := regexp.MustCompile(fmt.Sprint(strings.Join(tableNames, "\\s+")))
+	tableNamesFriendlyPattern := fmt.Sprint(strings.Join(tableNames, " "))
 
 	if err = assertStdoutMatchesRegex(result, *tableNamesRegex, tableNamesFriendlyPattern); err != nil {
 		return err

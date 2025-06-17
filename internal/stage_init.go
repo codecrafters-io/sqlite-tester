@@ -9,12 +9,11 @@ import (
 
 	_ "modernc.org/sqlite"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
 func testInit(stageHarness *test_case_harness.TestCaseHarness) error {
-	initRandom()
-
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
@@ -26,7 +25,7 @@ func testInit(stageHarness *test_case_harness.TestCaseHarness) error {
 	})
 
 	pageSizes := []int{512, 1024, 2048, 4096, 8192, 16384, 32768}
-	pageSize := pageSizes[randomInt(len(pageSizes))]
+	pageSize := pageSizes[random.RandomInt(0, len(pageSizes))]
 
 	logger.Debugf("Creating test database with page size %d: test.db", pageSize)
 	db, err := sql.Open("sqlite", fmt.Sprintf("./test.db?_pragma=page_size(%d)", pageSize))
