@@ -1,15 +1,15 @@
 Debug = true
 
-[33m[stage-2] [0m[94mRunning tests for Stage #2: ce0[0m
-[33m[stage-2] [0m[36mCreating test database with 6 tables: test.db[0m
-[33m[stage-2] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
+[33m[tester::#CE0] [0m[94mRunning tests for Stage #CE0 (ce0)[0m
+[33m[tester::#CE0] [0m[36mCreating test database with 6 tables: test.db[0m
+[33m[tester::#CE0] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
 [33m[your_program] [0mdatabase page size: 4096
 [33m[your_program] [0mnumber of tables: 6
-[33m[stage-2] [0m[92mTest passed.[0m
+[33m[tester::#CE0] [0m[92mTest passed.[0m
 
-[33m[stage-1] [0m[94mRunning tests for Stage #1: dr6[0m
-[33m[stage-1] [0m[36mCreating test database with page size 8192: test.db[0m
-[33m[stage-1] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
-[33m[your_program] [0mdatabase page size: 8192
+[33m[tester::#DR6] [0m[94mRunning tests for Stage #DR6 (dr6)[0m
+[33m[tester::#DR6] [0m[36mCreating test database with page size 16384: test.db[0m
+[33m[tester::#DR6] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
+[33m[your_program] [0mdatabase page size: 16384
 [33m[your_program] [0mnumber of tables: 1
-[33m[stage-1] [0m[92mTest passed.[0m
+[33m[tester::#DR6] [0m[92mTest passed.[0m
