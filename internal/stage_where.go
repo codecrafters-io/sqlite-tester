@@ -10,12 +10,11 @@ import (
 
 	_ "modernc.org/sqlite"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
 func testWhere(stageHarness *test_case_harness.TestCaseHarness) error {
-	initRandom()
-
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
@@ -29,7 +28,7 @@ func testWhere(stageHarness *test_case_harness.TestCaseHarness) error {
 	defer db.Close()
 
 	table := generateRandomTable()
-	numberOfRecords := 4 + randomInt(4)
+	numberOfRecords := 4 + random.RandomInt(0, 4)
 
 	logger.Debugf("Creating test.db with table: %v", table.Name)
 
