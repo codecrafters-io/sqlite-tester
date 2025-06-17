@@ -50,10 +50,10 @@ func testWhere(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 
-	testColumnNames := shuffle(table.ColumnNames)[0:3]
+	testColumnNames := random.ShuffleArray(table.ColumnNames)[0:3]
 	expectedValues := []string{}
 
-	filterColumnName := shuffle(table.ColumnNames)[0]
+	filterColumnName := random.ShuffleArray(table.ColumnNames)[0]
 	filterColumnValue := records[0].ValueFor(filterColumnName)
 
 	for _, record := range records {

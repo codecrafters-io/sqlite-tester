@@ -51,7 +51,7 @@ func testReadMultipleColumns(stageHarness *test_case_harness.TestCaseHarness) er
 		return err
 	}
 
-	testColumnNames := shuffle(table.ColumnNames)[0:3]
+	testColumnNames := random.ShuffleArray(table.ColumnNames)[0:3]
 	expectedValues := []string{}
 
 	for _, record := range records {

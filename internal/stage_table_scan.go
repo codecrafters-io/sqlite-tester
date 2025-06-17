@@ -11,6 +11,7 @@ import (
 
 	_ "modernc.org/sqlite"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -42,7 +43,7 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 	}
 	defer db.Close()
 
-	randomTestQueries := shuffle(testQueriesForSuperheroes)[0:3]
+	randomTestQueries := random.ShuffleArray(testQueriesForSuperheroes)[0:3]
 
 	for _, testQuery := range randomTestQueries {
 		logger.Infof("$ ./%v test.db \"%v\"", path.Base(executable.Path), testQuery)
