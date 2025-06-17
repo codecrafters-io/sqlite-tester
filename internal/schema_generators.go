@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/bxcodec/faker/v3"
+	"github.com/codecrafters-io/tester-utils/random"
 )
 
 type Table struct {
@@ -70,8 +71,8 @@ func (r Record) ValuesFor(columnNames []string) []string {
 
 func generateRandomTable() Table {
 	return Table{
-		Name:        randomStringShort(),
-		ColumnNames: randomStringsShort(NUMBER_OF_COLUMNS),
+		Name:        random.RandomString(),
+		ColumnNames: random.RandomStrings(NUMBER_OF_COLUMNS),
 	}
 }
 
