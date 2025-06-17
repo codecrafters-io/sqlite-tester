@@ -11,12 +11,11 @@ import (
 
 	_ "modernc.org/sqlite"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
 func testTableNames(stageHarness *test_case_harness.TestCaseHarness) error {
-	initRandom()
-
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
@@ -29,7 +28,7 @@ func testTableNames(stageHarness *test_case_harness.TestCaseHarness) error {
 	}
 	defer db.Close()
 
-	tableNames := randomStringsShort(5)
+	tableNames := random.RandomStrings(5)
 	sort.Strings(tableNames)
 
 	logger.Debugf("Creating test.db with tables: %v", tableNames)
