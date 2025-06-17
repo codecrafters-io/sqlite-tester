@@ -26,7 +26,7 @@ func testRowCounts(stageHarness *test_case_harness.TestCaseHarness) error {
 	}
 	defer db.Close()
 
-	tableName := random.RandomString()
+	tableName := random.RandomWord()
 	rowCount := random.RandomInt(100, 200)
 
 	logger.Debugf("Creating table '%v' with %v rows", tableName, rowCount)

@@ -71,7 +71,7 @@ func (r Record) ValuesFor(columnNames []string) []string {
 
 func generateRandomTable() Table {
 	return Table{
-		Name:        random.RandomString(),
+		Name:        random.RandomWord(),
 		ColumnNames: random.RandomWords(NUMBER_OF_COLUMNS),
 	}
 }
