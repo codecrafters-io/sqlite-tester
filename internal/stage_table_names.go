@@ -51,8 +51,8 @@ func testTableNames(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 
-	tableNamesRegex := regexp.MustCompile(fmt.Sprintf(strings.Join(tableNames, "\\s+")))
-	tableNamesFriendlyPattern := fmt.Sprintf(strings.Join(tableNames, " "))
+	tableNamesRegex := regexp.MustCompile(fmt.Sprint(strings.Join(tableNames, "\\s+")))
+	tableNamesFriendlyPattern := fmt.Sprint(strings.Join(tableNames, " "))
 
 	if err = assertStdoutMatchesRegex(result, *tableNamesRegex, tableNamesFriendlyPattern); err != nil {
 		return err
