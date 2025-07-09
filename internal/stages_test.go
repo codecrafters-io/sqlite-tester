@@ -12,45 +12,52 @@ func TestStages(t *testing.T) {
 
 	testCases := map[string]tester_utils_testing.TesterOutputTestCase{
 		"init_failure": {
-			UntilStageSlug: "dr6",
-			CodePath: "./test_helpers/stages/init_failure",
-			ExpectedExitCode: 1,
-			StdoutFixturePath: "./test_helpers/fixtures/init/failure",
+			UntilStageSlug:      "dr6",
+			CodePath:            "./test_helpers/stages/init_failure",
+			ExpectedExitCode:    1,
+			StdoutFixturePath:   "./test_helpers/fixtures/init/failure",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"init_success": {
-			UntilStageSlug: "dr6",
-			CodePath: "./test_helpers/stages/init",
-			ExpectedExitCode: 0,
-			StdoutFixturePath: "./test_helpers/fixtures/init/success",
+			UntilStageSlug:      "dr6",
+			CodePath:            "./test_helpers/stages/init",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/init/success",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"table_count_failure": {
-			UntilStageSlug: "ce0",
-			CodePath: "./test_helpers/stages/init",
-			ExpectedExitCode: 1,
-			StdoutFixturePath: "./test_helpers/fixtures/table_count/failure",
+			UntilStageSlug:      "ce0",
+			CodePath:            "./test_helpers/stages/init",
+			ExpectedExitCode:    1,
+			StdoutFixturePath:   "./test_helpers/fixtures/table_count/failure",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"table_count_success": {
-			UntilStageSlug: "ce0",
-			CodePath: "./test_helpers/stages/table_count",
-			ExpectedExitCode: 0,
-			StdoutFixturePath: "./test_helpers/fixtures/table_count/success",
+			UntilStageSlug:      "ce0",
+			CodePath:            "./test_helpers/stages/table_count",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/table_count/success",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"table_names_failure": {
-			UntilStageSlug: "sz4",
-			CodePath: "./test_helpers/stages/table_count",
-			ExpectedExitCode: 1,
-			StdoutFixturePath: "./test_helpers/fixtures/table_names/failure",
+			UntilStageSlug:      "sz4",
+			CodePath:            "./test_helpers/stages/table_count",
+			ExpectedExitCode:    1,
+			StdoutFixturePath:   "./test_helpers/fixtures/table_names/failure",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"table_names_success": {
-			UntilStageSlug: "sz4",
-			CodePath: "./test_helpers/stages/table_names",
-			ExpectedExitCode: 0,
-			StdoutFixturePath: "./test_helpers/fixtures/table_names/success",
+			UntilStageSlug:      "sz4",
+			CodePath:            "./test_helpers/stages/table_names",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/table_names/success",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
+		"segfault": {
+			UntilStageSlug:      "ws9",
+			CodePath:            "./test_helpers/scenarios/segfault",
+			ExpectedExitCode:    1,
+			StdoutFixturePath:   "./test_helpers/fixtures/scenarios/segfault",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 	}
@@ -63,4 +70,3 @@ func normalizeTesterOutput(testerOutput []byte) []byte {
 }
 
 // TODO: TestReadSingleColumnFailure
-

@@ -60,6 +60,19 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 			return err
 		}
 
+		// Hack for segfault
+		if len(actualValues) == 1 && actualValues[0] == "" {
+			logger.Infof("stderr: %s", string(result.Stderr))
+			logger.Infof("stderr length: %v", len(result.Stderr))
+
+			return fmt.Errorf(`❌ Error: Tester did not receive any output in stdout.
+
+🔢 Exit Code: %v
+
+🚨 Stderr: %s
+`, result.ExitCode, string(result.Stderr))
+		}
+
 		if len(actualValues) != len(expectedValues) {
 			return fmt.Errorf("Expected exactly %v lines of output, got: %v", len(expectedValues), len(actualValues))
 		}
