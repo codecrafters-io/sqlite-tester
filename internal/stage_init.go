@@ -47,6 +47,10 @@ func testInit(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 
+	if err := assertExitCode(result, 0); err != nil {
+		return err
+	}
+
 	databasePageSizeRegex := regexp.MustCompile(fmt.Sprintf("database page size:\\s+%v", pageSize))
 	databasePageSizeFriendlyPattern := fmt.Sprintf("database page size: %v", pageSize)
 

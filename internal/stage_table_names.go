@@ -51,6 +51,10 @@ func testTableNames(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 
+	if err := assertExitCode(result, 0); err != nil {
+		return err
+	}
+
 	tableNamesRegex := regexp.MustCompile(fmt.Sprint(strings.Join(tableNames, "\\s+")))
 	tableNamesFriendlyPattern := fmt.Sprint(strings.Join(tableNames, " "))
 

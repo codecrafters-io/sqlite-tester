@@ -52,7 +52,11 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 			return err
 		}
 
-		actualValues := strings.Split(strings.TrimSpace(string(result.Stdout)), "\n")
+		if err := assertExitCode(result, 0); err != nil {
+			return err
+		}
+
+		actualValues := splitBytesToLines(result.Stdout)
 
 		expectedValues, err := getExpectedValuesForQuery(db, testQuery)
 		if err != nil {

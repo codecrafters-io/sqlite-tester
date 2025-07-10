@@ -99,7 +99,11 @@ func testReadSingleColumn(stageHarness *test_case_harness.TestCaseHarness) error
 		return err
 	}
 
-	actualValues := strings.Split(strings.TrimSpace(string(result.Stdout)), "\n")
+	if err := assertExitCode(result, 0); err != nil {
+		return err
+	}
+
+	actualValues := splitBytesToLines(result.Stdout)
 
 	if len(actualValues) != len(expectedValues) {
 		return fmt.Errorf("Expected exactly %v lines of output, got: %v", len(expectedValues), len(actualValues))
