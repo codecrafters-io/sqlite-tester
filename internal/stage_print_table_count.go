@@ -48,6 +48,10 @@ func testTableCount(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 
+	if err := assertExitCode(result, 0); err != nil {
+		return err
+	}
+
 	numberOfTablesRegex := regexp.MustCompile(fmt.Sprintf("number of tables:\\s+%v", len(tableNames)))
 	numberOfTablesFriendlyPattern := fmt.Sprintf("number of tables: %v", len(tableNames))
 

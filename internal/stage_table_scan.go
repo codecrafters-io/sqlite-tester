@@ -52,25 +52,16 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 			return err
 		}
 
-		actualValues := strings.Split(strings.TrimSpace(string(result.Stdout)), "\n")
+		if err := assertExitCode(result, 0); err != nil {
+			return err
+		}
+
+		actualValues := splitBytesToLines(result.Stdout)
 
 		expectedValues, err := getExpectedValuesForQuery(db, testQuery)
 		if err != nil {
 			logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 			return err
-		}
-
-		// Hack for segfault
-		if len(actualValues) == 1 && actualValues[0] == "" {
-			logger.Infof("stderr: %s", string(result.Stderr))
-			logger.Infof("stderr length: %v", len(result.Stderr))
-
-			return fmt.Errorf(`❌ Error: Tester did not receive any output in stdout.
-
-🔢 Exit Code: %v
-
-🚨 Stderr: %s
-`, result.ExitCode, string(result.Stderr))
 		}
 
 		if len(actualValues) != len(expectedValues) {

@@ -59,6 +59,10 @@ func testRowCounts(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 
+	if err := assertExitCode(result, 0); err != nil {
+		return err
+	}
+
 	if err = assertStdout(result, fmt.Sprintf("%v\n", rowCount)); err != nil {
 		return err
 	}
