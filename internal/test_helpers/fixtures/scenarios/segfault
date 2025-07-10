@@ -2,5 +2,5 @@ Debug = true
 
 [33m[tester::#WS9] [0m[94mRunning tests for Stage #WS9 (ws9)[0m
 [33m[tester::#WS9] [0m[94m$ ./your_program.sh test.db "SELECT id, name FROM superheroes WHERE eye_color = 'Pink Eyes'"[0m
-[33m[tester::#WS9] [0m[91mExpected exit code 0, got: 139 "Segmentation fault"[0m
+[33m[tester::#WS9] [0m[91mExpected exit code 0, got: 139 (Segmentation fault)[0m
 [33m[tester::#WS9] [0m[91mTest failed[0m

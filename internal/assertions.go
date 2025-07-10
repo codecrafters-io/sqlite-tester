@@ -63,14 +63,14 @@ func assertStderrContains(result executable.ExecutableResult, expectedSubstring 
 
 func assertExitCode(result executable.ExecutableResult, expected int) error {
 	signalDescriptions := map[int]string{
-		129: "Hangup (SIGHUP)",
-		130: "Interrupt (SIGINT)",
-		131: "Quit (SIGQUIT)",
-		134: "Aborted (SIGABRT)",
-		137: "Killed (SIGKILL)",
+		129: "Hangup: received SIGHUP",
+		130: "Interrupt: received SIGINT",
+		131: "Quit: received SIGQUIT",
+		134: "Aborted: received SIGABRT",
+		137: "Killed: received SIGKILL",
 		139: "Segmentation fault",
-		141: "Broken pipe (SIGPIPE)",
-		143: "Terminated (SIGTERM)",
+		141: "Broken pipe: received SIGPIPE",
+		143: "Terminated: received SIGTERM",
 	}
 
 	actual := result.ExitCode
@@ -78,7 +78,7 @@ func assertExitCode(result executable.ExecutableResult, expected int) error {
 		errMsg := fmt.Sprintf("Expected exit code %d, got: %d", expected, actual)
 
 		if desc := signalDescriptions[actual]; desc != "" {
-			errMsg += fmt.Sprintf(" %q", desc)
+			errMsg += fmt.Sprintf(" (%s)", desc)
 		}
 
 		return fmt.Errorf("%s", errMsg)
