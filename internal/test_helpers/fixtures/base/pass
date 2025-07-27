@@ -1,0 +1,52 @@
+Debug = true
+
+[33m[tester::#SZ4] [0m[94mRunning tests for Stage #SZ4 (sz4)[0m
+[33m[tester::#SZ4] [0m[36mCreating test.db with tables: [apple blueberry grape orange strawberry][0m
+[33m[tester::#SZ4] [0m[94m$ ./your_sqlite3.sh test.db .tables[0m
+[33m[your_program] [0mapple       blueberry   grape       orange      strawberry
+[33m[tester::#SZ4] [0m[92mTest passed.[0m
+
+[33m[tester::#ND9] [0m[94mRunning tests for Stage #ND9 (nd9)[0m
+[33m[tester::#ND9] [0m[36mCreating table 'grape' with 114 rows[0m
+[33m[tester::#ND9] [0m[94m$ ./your_sqlite3.sh test.db "select count(*) from grape"[0m
+[33m[your_program] [0m114
+[33m[tester::#ND9] [0m[92mTest passed.[0m
+
+[33m[tester::#WS9] [0m[94mRunning tests for Stage #WS9 (ws9)[0m
+[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE eye_color = 'Gold Eyes'"[0m
+[33m[your_program] [0m764|Azrael (New Earth)
+[33m[your_program] [0m1131|Lambien (New Earth)
+[33m[your_program] [0m1616|Anna Fortune (New Earth)
+[33m[your_program] [0m2995|Layla (New Earth)
+[33m[your_program] [0m4346|Allegra Garcia (New Earth)
+[33m[your_program] [0m4533|Kal-El (DC One Million)
+[33m[your_program] [0m4710|Amber (New Earth)
+[33m[your_program] [0m4765|Ahura-Mazda (New Earth)
+[33m[your_program] [0m5413|Majistra (New Earth)
+[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE eye_color = 'Pink Eyes'"[0m
+[33m[your_program] [0m297|Stealth (New Earth)
+[33m[your_program] [0m790|Tobias Whale (New Earth)
+[33m[your_program] [0m1085|Felicity (New Earth)
+[33m[your_program] [0m2729|Thrust (New Earth)
+[33m[your_program] [0m3289|Angora Lapin (New Earth)
+[33m[your_program] [0m3913|Matris Ater Clementia (New Earth)
+[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE hair_color = 'Reddish Brown Hair'"[0m
+[33m[your_program] [0m474|Yolanda Montez (New Earth)
+[33m[your_program] [0m3748|Deron Ved (Earth-One)
+[33m[your_program] [0m6777|G'Nort (New Earth)
+[33m[tester::#WS9] [0m[92mTest passed.[0m
+
+[33m[tester::#NZ8] [0m[94mRunning tests for Stage #NZ8 (nz8)[0m
+[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'micronesia'"[0m
+[33m[your_program] [0m1307865|college of micronesia
+[33m[your_program] [0m3696903|nanofabrica
+[33m[your_program] [0m4023193|fsm statistics
+[33m[your_program] [0m6132291|vital energy micronesia
+[33m[your_program] [0m6387751|fsm development bank
+[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'tonga'"[0m
+[33m[your_program] [0m361142|tonga communications corporation
+[33m[your_program] [0m3186430|tonga development bank
+[33m[your_program] [0m3583436|leiola group limited
+[33m[your_program] [0m4796634|royco amalgamated company limited
+[33m[your_program] [0m7084593|tonga business enterprise centre
+[33m[tester::#NZ8] [0m[92mTest passed.[0m
