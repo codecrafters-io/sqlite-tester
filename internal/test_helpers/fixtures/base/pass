@@ -1,129 +1,73 @@
 Debug = true
 
-[33m[tester::#NZ8] [0m[94mRunning tests for Stage #NZ8 (nz8)[0m
-[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'micronesia'"[0m
-[33m[your_program] [0m1307865|college of micronesia
-[33m[your_program] [0m3696903|nanofabrica
-[33m[your_program] [0m4023193|fsm statistics
-[33m[your_program] [0m6132291|vital energy micronesia
-[33m[your_program] [0m6387751|fsm development bank
-[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'tonga'"[0m
-[33m[your_program] [0m361142|tonga communications corporation
-[33m[your_program] [0m3186430|tonga development bank
-[33m[your_program] [0m3583436|leiola group limited
-[33m[your_program] [0m4796634|royco amalgamated company limited
-[33m[your_program] [0m7084593|tonga business enterprise centre
-[33m[tester::#NZ8] [0m[92mTest passed.[0m
+[33m[tester::#SZ4] [0m[94mRunning tests for Stage #SZ4 (sz4)[0m
+[33m[tester::#SZ4] [0m[36mCreating test.db with tables: [apple blueberry grape orange strawberry][0m
+[33m[tester::#SZ4] [0m[94m$ ./your_sqlite3.sh test.db .tables[0m
+[33m[your_program] [0mapple       blueberry   grape       orange      strawberry
+[33m[tester::#SZ4] [0m[92mTest passed.[0m
+
+[33m[tester::#ND9] [0m[94mRunning tests for Stage #ND9 (nd9)[0m
+[33m[tester::#ND9] [0m[36mCreating table 'grape' with 114 rows[0m
+[33m[tester::#ND9] [0m[94m$ ./your_sqlite3.sh test.db "select count(*) from grape"[0m
+[33m[your_program] [0m114
+[33m[tester::#ND9] [0m[92mTest passed.[0m
+
+[33m[tester::#AZ9] [0m[94mRunning tests for Stage #AZ9 (az9)[0m
+[33m[tester::#AZ9] [0m[36mCreating test.db with table: apple[0m
+[33m[tester::#AZ9] [0m[36mColumns in table: pear, raspberry, grape, orange, pineapple[0m
+[33m[tester::#AZ9] [0m[94m$ ./your_sqlite3.sh test.db "select orange from apple"[0m
+[33m[your_program] [0mMckayla
+[33m[your_program] [0mChasity
+[33m[your_program] [0mReyna
+[33m[your_program] [0mErika
+[33m[tester::#AZ9] [0m[92mTest passed.[0m
+
+[33m[tester::#VC9] [0m[94mRunning tests for Stage #VC9 (vc9)[0m
+[33m[tester::#VC9] [0m[36mCreating test.db with table: apple[0m
+[33m[tester::#VC9] [0m[36mColumns in table: pear, banana, pineapple, blueberry, grape[0m
+[33m[tester::#VC9] [0m[94m$ ./your_sqlite3.sh test.db "select pineapple, banana, blueberry from apple"[0m
+[33m[your_program] [0mLeilani|Odie|Althea
+[33m[your_program] [0mKrystina|Rebekah|Onie
+[33m[your_program] [0mEllen|Dawn|Karelle
+[33m[your_program] [0mCharlene|Mayra|Lilyan
+[33m[your_program] [0mAsia|Charity|Dahlia
+[33m[your_program] [0mWinifred|Brandyn|Selina
+[33m[your_program] [0mGolda|Marcelle|Kacie
+[33m[tester::#VC9] [0m[92mTest passed.[0m
+
+[33m[tester::#RF3] [0m[94mRunning tests for Stage #RF3 (rf3)[0m
+[33m[tester::#RF3] [0m[36mCreating test.db with table: banana[0m
+[33m[tester::#RF3] [0m[94m$ ./your_sqlite3.sh test.db "select blueberry, banana, mango from banana where grape = 'Noemie'"[0m
+[33m[your_program] [0mClotilde|Dayna|Grace
+[33m[tester::#RF3] [0m[92mTest passed.[0m
 
 [33m[tester::#WS9] [0m[94mRunning tests for Stage #WS9 (ws9)[0m
+[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE hair_color = 'Violet Hair'"[0m
+[33m[your_program] [0m988|Susan Linden I (New Earth)
+[33m[your_program] [0m1010|Flora Black (New Earth)
+[33m[your_program] [0m1781|Susan Linden II (New Earth)
+[33m[your_program] [0m2560|Gretti (New Earth)
 [33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE hair_color = 'Reddish Brown Hair'"[0m
 [33m[your_program] [0m474|Yolanda Montez (New Earth)
 [33m[your_program] [0m3748|Deron Ved (Earth-One)
 [33m[your_program] [0m6777|G'Nort (New Earth)
-[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE eye_color = 'Amber Eyes'"[0m
-[33m[your_program] [0m78|Mari McCabe (New Earth)
-[33m[your_program] [0m840|Charlie the Owl (New Earth)
-[33m[your_program] [0m1151|Freak (New Earth)
-[33m[your_program] [0m1874|Meloni Thawne (New Earth)
-[33m[your_program] [0m2077|Lynx II (New Earth)
-[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE eye_color = 'Pink Eyes'"[0m
-[33m[your_program] [0m297|Stealth (New Earth)
-[33m[your_program] [0m790|Tobias Whale (New Earth)
-[33m[your_program] [0m1085|Felicity (New Earth)
-[33m[your_program] [0m2729|Thrust (New Earth)
-[33m[your_program] [0m3289|Angora Lapin (New Earth)
-[33m[your_program] [0m3913|Matris Ater Clementia (New Earth)
+[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE hair_color = 'Silver Hair'"[0m
+[33m[your_program] [0m252|Dolphin (New Earth)
+[33m[your_program] [0m1052|Silver St. Cloud (New Earth)
+[33m[your_program] [0m2668|Pasquale Galante, Jr. (New Earth)
 [33m[tester::#WS9] [0m[92mTest passed.[0m
 
-[33m[tester::#RF3] [0m[94mRunning tests for Stage #RF3 (rf3)[0m
-[33m[tester::#RF3] [0m[36mCreating test.db with table: banana[0m
-[33m[tester::#RF3] [0m[94m$ ./your_sqlite3.sh test.db "select strawberry, apple, blueberry from banana where banana = 'Hulda'"[0m
-[33m[your_program] [0mVita|Janice|Courtney
-[33m[tester::#RF3] [0m[92mTest passed.[0m
-
-[33m[tester::#VC9] [0m[94mRunning tests for Stage #VC9 (vc9)[0m
-[33m[tester::#VC9] [0m[36mCreating test.db with table: pineapple[0m
-[33m[tester::#VC9] [0m[36mColumns in table: mango, orange, pear, apple, blueberry[0m
-[33m[tester::#VC9] [0m[94m$ ./your_sqlite3.sh test.db "select mango, pear, apple from pineapple"[0m
-[33m[your_program] [0mEmie|Alisha|Joannie
-[33m[your_program] [0mKiara|Kelli|Anabel
-[33m[your_program] [0mOdessa|Rowena|Gudrun
-[33m[your_program] [0mIlene|Christiana|Eldridge
-[33m[tester::#VC9] [0m[92mTest passed.[0m
-
-[33m[tester::#AZ9] [0m[94mRunning tests for Stage #AZ9 (az9)[0m
-[33m[tester::#AZ9] [0m[36mCreating test.db with table: grape[0m
-[33m[tester::#AZ9] [0m[36mColumns in table: raspberry, orange, apple, pear, mango[0m
-[33m[tester::#AZ9] [0m[94m$ ./your_sqlite3.sh test.db "select orange from grape"[0m
-[33m[your_program] [0mAmie
-[33m[your_program] [0mJuliet
-[33m[your_program] [0mAna
-[33m[your_program] [0mApril
-[33m[your_program] [0mAnnetta
-[33m[tester::#AZ9] [0m[92mTest passed.[0m
-
-[33m[tester::#ND9] [0m[94mRunning tests for Stage #ND9 (nd9)[0m
-[33m[tester::#ND9] [0m[36mCreating table 'pineapple' with 181 rows[0m
-[33m[tester::#ND9] [0m[94m$ ./your_sqlite3.sh test.db "select count(*) from pineapple"[0m
-[33m[your_program] [0m181
-[33m[tester::#ND9] [0m[92mTest passed.[0m
-
-[33m[tester::#SZ4] [0m[94mRunning tests for Stage #SZ4 (sz4)[0m
-[33m[tester::#SZ4] [0m[36mCreating test.db with tables: [grape mango orange pineapple strawberry][0m
-[33m[tester::#SZ4] [0m[94m$ ./your_sqlite3.sh test.db .tables[0m
-[33m[your_program] [0mgrape       mango       orange      pineapple   strawberry
-[33m[tester::#SZ4] [0m[92mTest passed.[0m
-
-[33m[tester::#CE0] [0m[94mRunning tests for Stage #CE0 (ce0)[0m
-[33m[tester::#CE0] [0m[36mCreating test database with 4 tables: test.db[0m
-[33m[tester::#CE0] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
-[33m[your_program] [0mdatabase page size:  4096
-[33m[your_program] [0mwrite format:        1
-[33m[your_program] [0mread format:         1
-[33m[your_program] [0mreserved bytes:      0
-[33m[your_program] [0mfile change counter: 4
-[33m[your_program] [0mdatabase page count: 5
-[33m[your_program] [0mfreelist page count: 0
-[33m[your_program] [0mschema cookie:       4
-[33m[your_program] [0mschema format:       4
-[33m[your_program] [0mdefault cache size:  0
-[33m[your_program] [0mautovacuum top root: 0
-[33m[your_program] [0mincremental vacuum:  0
-[33m[your_program] [0mtext encoding:       1 (utf8)
-[33m[your_program] [0muser version:        0
-[33m[your_program] [0mapplication id:      0
-[33m[your_program] [0msoftware version:    3036000
-[33m[your_program] [0mnumber of tables:    4
-[33m[your_program] [0mnumber of indexes:   0
-[33m[your_program] [0mnumber of triggers:  0
-[33m[your_program] [0mnumber of views:     0
-[33m[your_program] [0mschema size:         224
-[33m[your_program] [0mdata version         1
-[33m[tester::#CE0] [0m[92mTest passed.[0m
-
-[33m[tester::#DR6] [0m[94mRunning tests for Stage #DR6 (dr6)[0m
-[33m[tester::#DR6] [0m[36mCreating test database with page size 1024: test.db[0m
-[33m[tester::#DR6] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
-[33m[your_program] [0mdatabase page size:  1024
-[33m[your_program] [0mwrite format:        1
-[33m[your_program] [0mread format:         1
-[33m[your_program] [0mreserved bytes:      0
-[33m[your_program] [0mfile change counter: 1
-[33m[your_program] [0mdatabase page count: 2
-[33m[your_program] [0mfreelist page count: 0
-[33m[your_program] [0mschema cookie:       1
-[33m[your_program] [0mschema format:       4
-[33m[your_program] [0mdefault cache size:  0
-[33m[your_program] [0mautovacuum top root: 0
-[33m[your_program] [0mincremental vacuum:  0
-[33m[your_program] [0mtext encoding:       1 (utf8)
-[33m[your_program] [0muser version:        0
-[33m[your_program] [0mapplication id:      0
-[33m[your_program] [0msoftware version:    3036000
-[33m[your_program] [0mnumber of tables:    1
-[33m[your_program] [0mnumber of indexes:   0
-[33m[your_program] [0mnumber of triggers:  0
-[33m[your_program] [0mnumber of views:     0
-[33m[your_program] [0mschema size:         53
-[33m[your_program] [0mdata version         2
-[33m[tester::#DR6] [0m[92mTest passed.[0m
+[33m[tester::#NZ8] [0m[94mRunning tests for Stage #NZ8 (nz8)[0m
+[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'north korea'"[0m
+[33m[your_program] [0m986681|isn network company limited
+[33m[your_program] [0m1573653|initial innovation limited
+[33m[your_program] [0m2828420|beacon point ltd
+[33m[your_program] [0m3485462|pyongyang university of science & technology (pust)
+[33m[your_program] [0m3969653|plastoform industries ltd
+[33m[your_program] [0m4271599|korea national insurance corporation
+[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'eritrea'"[0m
+[33m[your_program] [0m121311|unilink s.c.
+[33m[your_program] [0m2102438|orange asmara it solutions
+[33m[your_program] [0m5729848|zara mining share company
+[33m[your_program] [0m6634629|asmara rental
+[33m[tester::#NZ8] [0m[92mTest passed.[0m
