@@ -53,6 +53,13 @@ func TestStages(t *testing.T) {
 			StdoutFixturePath:   "./test_helpers/fixtures/table_names/success",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
+		"pass_all": {
+			UntilStageSlug:      "nz8",
+			CodePath:            "./test_helpers/pass_all",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/base/pass",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
 		"segfault": {
 			UntilStageSlug:      "ws9",
 			CodePath:            "./test_helpers/scenarios/segfault",
