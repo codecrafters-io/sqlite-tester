@@ -12,62 +12,41 @@ Debug = true
 [33m[your_program] [0m114
 [33m[tester::#ND9] [0m[92mTest passed.[0m
 
-[33m[tester::#AZ9] [0m[94mRunning tests for Stage #AZ9 (az9)[0m
-[33m[tester::#AZ9] [0m[36mCreating test.db with table: apple[0m
-[33m[tester::#AZ9] [0m[36mColumns in table: pear, raspberry, grape, orange, pineapple[0m
-[33m[tester::#AZ9] [0m[94m$ ./your_sqlite3.sh test.db "select orange from apple"[0m
-[33m[your_program] [0mMckayla
-[33m[your_program] [0mChasity
-[33m[your_program] [0mReyna
-[33m[your_program] [0mErika
-[33m[tester::#AZ9] [0m[92mTest passed.[0m
-
-[33m[tester::#VC9] [0m[94mRunning tests for Stage #VC9 (vc9)[0m
-[33m[tester::#VC9] [0m[36mCreating test.db with table: apple[0m
-[33m[tester::#VC9] [0m[36mColumns in table: pear, banana, pineapple, blueberry, grape[0m
-[33m[tester::#VC9] [0m[94m$ ./your_sqlite3.sh test.db "select pineapple, banana, blueberry from apple"[0m
-[33m[your_program] [0mLeilani|Odie|Althea
-[33m[your_program] [0mKrystina|Rebekah|Onie
-[33m[your_program] [0mEllen|Dawn|Karelle
-[33m[your_program] [0mCharlene|Mayra|Lilyan
-[33m[your_program] [0mAsia|Charity|Dahlia
-[33m[your_program] [0mWinifred|Brandyn|Selina
-[33m[your_program] [0mGolda|Marcelle|Kacie
-[33m[tester::#VC9] [0m[92mTest passed.[0m
-
-[33m[tester::#RF3] [0m[94mRunning tests for Stage #RF3 (rf3)[0m
-[33m[tester::#RF3] [0m[36mCreating test.db with table: banana[0m
-[33m[tester::#RF3] [0m[94m$ ./your_sqlite3.sh test.db "select blueberry, banana, mango from banana where grape = 'Noemie'"[0m
-[33m[your_program] [0mClotilde|Dayna|Grace
-[33m[tester::#RF3] [0m[92mTest passed.[0m
-
 [33m[tester::#WS9] [0m[94mRunning tests for Stage #WS9 (ws9)[0m
-[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE hair_color = 'Violet Hair'"[0m
-[33m[your_program] [0m988|Susan Linden I (New Earth)
-[33m[your_program] [0m1010|Flora Black (New Earth)
-[33m[your_program] [0m1781|Susan Linden II (New Earth)
-[33m[your_program] [0m2560|Gretti (New Earth)
+[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE eye_color = 'Gold Eyes'"[0m
+[33m[your_program] [0m764|Azrael (New Earth)
+[33m[your_program] [0m1131|Lambien (New Earth)
+[33m[your_program] [0m1616|Anna Fortune (New Earth)
+[33m[your_program] [0m2995|Layla (New Earth)
+[33m[your_program] [0m4346|Allegra Garcia (New Earth)
+[33m[your_program] [0m4533|Kal-El (DC One Million)
+[33m[your_program] [0m4710|Amber (New Earth)
+[33m[your_program] [0m4765|Ahura-Mazda (New Earth)
+[33m[your_program] [0m5413|Majistra (New Earth)
+[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE eye_color = 'Pink Eyes'"[0m
+[33m[your_program] [0m297|Stealth (New Earth)
+[33m[your_program] [0m790|Tobias Whale (New Earth)
+[33m[your_program] [0m1085|Felicity (New Earth)
+[33m[your_program] [0m2729|Thrust (New Earth)
+[33m[your_program] [0m3289|Angora Lapin (New Earth)
+[33m[your_program] [0m3913|Matris Ater Clementia (New Earth)
 [33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE hair_color = 'Reddish Brown Hair'"[0m
 [33m[your_program] [0m474|Yolanda Montez (New Earth)
 [33m[your_program] [0m3748|Deron Ved (Earth-One)
 [33m[your_program] [0m6777|G'Nort (New Earth)
-[33m[tester::#WS9] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM superheroes WHERE hair_color = 'Silver Hair'"[0m
-[33m[your_program] [0m252|Dolphin (New Earth)
-[33m[your_program] [0m1052|Silver St. Cloud (New Earth)
-[33m[your_program] [0m2668|Pasquale Galante, Jr. (New Earth)
 [33m[tester::#WS9] [0m[92mTest passed.[0m
 
 [33m[tester::#NZ8] [0m[94mRunning tests for Stage #NZ8 (nz8)[0m
-[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'north korea'"[0m
-[33m[your_program] [0m986681|isn network company limited
-[33m[your_program] [0m1573653|initial innovation limited
-[33m[your_program] [0m2828420|beacon point ltd
-[33m[your_program] [0m3485462|pyongyang university of science & technology (pust)
-[33m[your_program] [0m3969653|plastoform industries ltd
-[33m[your_program] [0m4271599|korea national insurance corporation
-[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'eritrea'"[0m
-[33m[your_program] [0m121311|unilink s.c.
-[33m[your_program] [0m2102438|orange asmara it solutions
-[33m[your_program] [0m5729848|zara mining share company
-[33m[your_program] [0m6634629|asmara rental
+[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'micronesia'"[0m
+[33m[your_program] [0m1307865|college of micronesia
+[33m[your_program] [0m3696903|nanofabrica
+[33m[your_program] [0m4023193|fsm statistics
+[33m[your_program] [0m6132291|vital energy micronesia
+[33m[your_program] [0m6387751|fsm development bank
+[33m[tester::#NZ8] [0m[94m$ ./your_sqlite3.sh test.db "SELECT id, name FROM companies WHERE country = 'tonga'"[0m
+[33m[your_program] [0m361142|tonga communications corporation
+[33m[your_program] [0m3186430|tonga development bank
+[33m[your_program] [0m3583436|leiola group limited
+[33m[your_program] [0m4796634|royco amalgamated company limited
+[33m[your_program] [0m7084593|tonga business enterprise centre
 [33m[tester::#NZ8] [0m[92mTest passed.[0m
