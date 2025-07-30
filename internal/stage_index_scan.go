@@ -92,13 +92,6 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 	fmt.Println(db)
 	fmt.Println()
 
-	output, err = exec.Command("free", "-h").Output()
-	if err != nil {
-		fmt.Printf("Error running ls: %v\n", err)
-	} else {
-		fmt.Printf("free -h:\n%s\n", output)
-	}
-
 	randomTestQueries := random.ShuffleArray(testQueriesForCompanies)[0:2]
 
 	for _, testQuery := range randomTestQueries {
@@ -113,16 +106,6 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 		}
 
 		actualValues := splitBytesToLines(result.Stdout)
-
-		fmt.Println()
-		fmt.Println("⛳ before getExpectedValuesForQuery")
-		output, err = exec.Command("free", "-h").Output()
-		if err != nil {
-			fmt.Printf("Error running ls: %v\n", err)
-		} else {
-			fmt.Printf("free -h:\n%s\n", output)
-			fmt.Println()
-		}
 
 		expectedValues, err := getExpectedValuesForQuery(db, testQuery)
 		if err != nil {
