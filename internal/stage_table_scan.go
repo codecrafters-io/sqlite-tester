@@ -91,6 +91,10 @@ func getExpectedValuesForQuery(db *sql.DB, query string) ([]string, error) {
 	}
 	defer rows.Close()
 
+	fmt.Println()
+	fmt.Println("⛳ after db.Query.")
+	fmt.Println()
+
 	for rows.Next() {
 		var value1 string
 		var value2 string
@@ -102,5 +106,7 @@ func getExpectedValuesForQuery(db *sql.DB, query string) ([]string, error) {
 		expectedValues = append(expectedValues, strings.Join([]string{value1, value2}, "|"))
 	}
 
+	fmt.Println("⛳ expectedValues", expectedValues)
+	fmt.Println()
 	return expectedValues, nil
 }
