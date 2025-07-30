@@ -31,6 +31,8 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	_ = os.Remove("./test.db")
 
+	fmt.Println("⛳ Before running `cp companies.db test.db`.")
+
 	if err := exec.Command("cp", path.Join(os.Getenv("TESTER_DIR"), "companies.db"), "./test.db").Run(); err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
