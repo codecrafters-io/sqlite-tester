@@ -29,19 +29,12 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
-	output, err := exec.Command("df", "-h").Output()
-	if err != nil {
-		fmt.Printf("Error running ls: %v\n", err)
-	} else {
-		fmt.Printf("df -h:\n%s\n", output)
-	}
-
 	fmt.Println("⛳ Executable:")
 	fmt.Println(executable)
 	fmt.Println()
 
 	fmt.Println("⛳ Before Removing ./test.db")
-	output, err = exec.Command("ls", "-la").Output()
+	output, err := exec.Command("ls", "-la").Output()
 	if err != nil {
 		fmt.Printf("Error running ls: %v\n", err)
 	} else {
@@ -49,23 +42,6 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 	}
 
 	_ = os.Remove("./test.db")
-
-	fmt.Println("⛳ After Removing ./test.db")
-	output, err = exec.Command("ls", "-la").Output()
-	if err != nil {
-		fmt.Printf("Error running ls: %v\n", err)
-	} else {
-		fmt.Printf("Directory contents:\n%s\n", output)
-	}
-
-	fmt.Println("⛳ Before Copying ./test.db")
-	fmt.Printf("TESTER_DIR: %v\n", os.Getenv("TESTER_DIR"))
-	output, err = exec.Command("ls", "-la", os.Getenv("TESTER_DIR")).Output()
-	if err != nil {
-		fmt.Printf("Error running ls: %v\n", err)
-	} else {
-		fmt.Printf("Directory contents:\n%s\n", output)
-	}
 
 	if err := exec.Command("cp", path.Join(os.Getenv("TESTER_DIR"), "companies.db"), "./test.db").Run(); err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
