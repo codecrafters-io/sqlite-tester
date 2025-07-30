@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
-	"os/exec"
 	"path"
 	"sort"
 	"strings"
@@ -77,8 +76,8 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	_ = os.Remove("./test.db")
 
-	if err := exec.Command("cp", path.Join(os.Getenv("TESTER_DIR"), "companies.db"), "./test.db").Run(); err != nil {
-		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
+	if err := os.Symlink(path.Join(os.Getenv("TESTER_DIR"), "companies.db"), "./test.db"); err != nil {
+		logger.Errorf("Failed to create symlink for test database, this is a CodeCrafters error.")
 		return err
 	}
 
