@@ -58,7 +58,7 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 		fmt.Printf("Directory contents:\n%s\n", output)
 	}
 
-	fmt.Println("⛳ Before Creating Symlink ./test.db")
+	fmt.Println("⛳ Before Copying ./test.db")
 	fmt.Printf("TESTER_DIR: %v\n", os.Getenv("TESTER_DIR"))
 	output, err = exec.Command("ls", "-la", os.Getenv("TESTER_DIR")).Output()
 	if err != nil {
@@ -67,13 +67,12 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 		fmt.Printf("Directory contents:\n%s\n", output)
 	}
 
-	if err := exec.Command("ln", "-s", path.Join(os.Getenv("TESTER_DIR"), "companies.db"), "./test.db").Run(); err != nil {
+	if err := exec.Command("cp", path.Join(os.Getenv("TESTER_DIR"), "companies.db"), "./test.db").Run(); err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
 	}
 
-	fmt.Println("⛳ After Creating Symlink ./test.db")
-
+	fmt.Println("⛳ After Copying ./test.db")
 	output, err = exec.Command("ls", "-la").Output()
 	if err != nil {
 		fmt.Printf("Error running ls: %v\n", err)
