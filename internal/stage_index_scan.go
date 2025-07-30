@@ -29,31 +29,11 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 	executable := stageHarness.Executable
 
-	fmt.Println("⛳ Executable:")
-	fmt.Println(executable)
-	fmt.Println()
-
-	fmt.Println("⛳ Before Removing ./test.db")
-	output, err := exec.Command("ls", "-la").Output()
-	if err != nil {
-		fmt.Printf("Error running ls: %v\n", err)
-	} else {
-		fmt.Printf("Directory contents:\n%s\n", output)
-	}
-
 	_ = os.Remove("./test.db")
 
 	if err := exec.Command("cp", path.Join(os.Getenv("TESTER_DIR"), "companies.db"), "./test.db").Run(); err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
-	}
-
-	fmt.Println("⛳ After Copying ./test.db")
-	output, err = exec.Command("ls", "-la").Output()
-	if err != nil {
-		fmt.Printf("Error running ls: %v\n", err)
-	} else {
-		fmt.Printf("Directory contents:\n%s\n", output)
 	}
 
 	db, err := sql.Open("sqlite", "./test.db")
@@ -62,10 +42,6 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 	defer db.Close()
-
-	fmt.Println("⛳ After Opening ./test.db")
-	fmt.Println(db)
-	fmt.Println()
 
 	randomTestQueries := random.ShuffleArray(testQueriesForCompanies)[0:2]
 
