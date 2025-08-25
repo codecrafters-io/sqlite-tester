@@ -35,7 +35,7 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 		return err
 	}
 
-	db, err := sql.Open("sqlite", "./test.db")
+	db, err := sql.Open("sqlite", "file:./test.db?mode=ro")
 	if err != nil {
 		logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 		return err
