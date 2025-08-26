@@ -82,32 +82,35 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 }
 
 func getExpectedValuesForQuery(db *sql.DB, query string) ([]string, error) {
-	expectedValues := []string{}
-	resultChannel := make(chan *sql.Rows, 1)
+	resultChannel := make(chan []string, 1)
 	errorChannel := make(chan error, 1)
 
 	go func() {
+		expectedValues := []string{}
+
 		rows, err := db.Query(query)
 		if err != nil {
 			errorChannel <- err
 			return
 		}
-		defer rows.Close()
-		resultChannel <- rows
-	}()
 
-	select {
-	case rows := <-resultChannel:
 		for rows.Next() {
 			var value1 string
 			var value2 string
 
 			if err := rows.Scan(&value1, &value2); err != nil {
-				return []string{}, err
+				rows.Close()
+				errorChannel <- err
+				return
 			}
-
 			expectedValues = append(expectedValues, strings.Join([]string{value1, value2}, "|"))
 		}
+		rows.Close()
+		resultChannel <- expectedValues
+	}()
+
+	select {
+	case expectedValues := <-resultChannel:
 		return expectedValues, nil
 
 	case err := <-errorChannel:
