@@ -7,6 +7,7 @@ import (
 	"path"
 	"sort"
 	"strings"
+	"time"
 
 	_ "modernc.org/sqlite"
 
@@ -59,7 +60,6 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 
 		expectedValues, err := getExpectedValuesForQuery(db, testQuery)
 		if err != nil {
-			logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 			return err
 		}
 
@@ -82,24 +82,41 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 }
 
 func getExpectedValuesForQuery(db *sql.DB, query string) ([]string, error) {
-	expectedValues := []string{}
+	resultChannel := make(chan []string, 1)
+	errorChannel := make(chan error, 1)
 
-	rows, err := db.Query(query)
-	if err != nil {
-		return []string{}, err
-	}
-	defer rows.Close()
+	go func() {
+		expectedValues := []string{}
 
-	for rows.Next() {
-		var value1 string
-		var value2 string
-
-		if err := rows.Scan(&value1, &value2); err != nil {
-			return []string{}, err
+		rows, err := db.Query(query)
+		if err != nil {
+			errorChannel <- err
+			return
 		}
 
-		expectedValues = append(expectedValues, strings.Join([]string{value1, value2}, "|"))
-	}
+		for rows.Next() {
+			var value1 string
+			var value2 string
 
-	return expectedValues, nil
+			if err := rows.Scan(&value1, &value2); err != nil {
+				rows.Close()
+				errorChannel <- err
+				return
+			}
+			expectedValues = append(expectedValues, strings.Join([]string{value1, value2}, "|"))
+		}
+		rows.Close()
+		resultChannel <- expectedValues
+	}()
+
+	select {
+	case expectedValues := <-resultChannel:
+		return expectedValues, nil
+
+	case err := <-errorChannel:
+		panic(fmt.Sprintf("CodeCrafters internal error: Database query failed: %v", err))
+
+	case <-time.After(1 * time.Second):
+		panic("CodeCrafters internal error: Failed to open the test database within 1 second")
+	}
 }
