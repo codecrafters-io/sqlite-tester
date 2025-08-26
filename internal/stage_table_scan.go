@@ -59,7 +59,6 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 
 		expectedValues, err := getExpectedValuesForQuery(db, testQuery)
 		if err != nil {
-			logger.Errorf("Failed to create test database, this is a CodeCrafters error.")
 			return err
 		}
 
