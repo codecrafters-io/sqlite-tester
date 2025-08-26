@@ -7,6 +7,7 @@ import (
 	"path"
 	"sort"
 	"strings"
+	"time"
 
 	_ "modernc.org/sqlite"
 
@@ -82,23 +83,37 @@ func testTableScan(stageHarness *test_case_harness.TestCaseHarness) error {
 
 func getExpectedValuesForQuery(db *sql.DB, query string) ([]string, error) {
 	expectedValues := []string{}
+	resultChannel := make(chan *sql.Rows, 1)
+	errorChannel := make(chan error, 1)
 
-	rows, err := db.Query(query)
-	if err != nil {
-		return []string{}, err
-	}
-	defer rows.Close()
-
-	for rows.Next() {
-		var value1 string
-		var value2 string
-
-		if err := rows.Scan(&value1, &value2); err != nil {
-			return []string{}, err
+	go func() {
+		rows, err := db.Query(query)
+		if err != nil {
+			errorChannel <- err
+			return
 		}
+		defer rows.Close()
+		resultChannel <- rows
+	}()
 
-		expectedValues = append(expectedValues, strings.Join([]string{value1, value2}, "|"))
+	select {
+	case rows := <-resultChannel:
+		for rows.Next() {
+			var value1 string
+			var value2 string
+
+			if err := rows.Scan(&value1, &value2); err != nil {
+				return []string{}, err
+			}
+
+			expectedValues = append(expectedValues, strings.Join([]string{value1, value2}, "|"))
+		}
+		return expectedValues, nil
+
+	case err := <-errorChannel:
+		panic(fmt.Sprintf("CodeCrafters internal error: Database query failed: %v", err))
+
+	case <-time.After(1 * time.Second):
+		panic("CodeCrafters internal error: Failed to open the test database within 1 second")
 	}
-
-	return expectedValues, nil
 }

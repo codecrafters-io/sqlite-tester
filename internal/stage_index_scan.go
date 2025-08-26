@@ -7,7 +7,6 @@ import (
 	"path"
 	"sort"
 	"strings"
-	"time"
 
 	_ "modernc.org/sqlite"
 
@@ -57,39 +56,24 @@ func testIndexScan(stageHarness *test_case_harness.TestCaseHarness) error {
 		}
 
 		actualValues := splitBytesToLines(result.Stdout)
-		resultChannel := make(chan []string, 1)
-		errorChannel := make(chan error, 1)
 
-		go func() {
-			expectedValues, err := getExpectedValuesForQuery(db, testQuery)
-			if err != nil {
-				errorChannel <- err
-				return
-			}
-			resultChannel <- expectedValues
-		}()
+		expectedValues, err := getExpectedValuesForQuery(db, testQuery)
+		if err != nil {
+			return err
+		}
 
-		select {
-		case expectedValues := <-resultChannel:
-			if len(actualValues) != len(expectedValues) {
-				return fmt.Errorf("Expected exactly %v lines of output, got: %v", len(expectedValues), len(actualValues))
-			}
+		if len(actualValues) != len(expectedValues) {
+			return fmt.Errorf("Expected exactly %v lines of output, got: %v", len(expectedValues), len(actualValues))
+		}
 
-			sort.Strings(expectedValues)
-			sort.Strings(actualValues)
+		sort.Strings(expectedValues)
+		sort.Strings(actualValues)
 
-			expectedValuesStr := strings.Join(expectedValues, "\n")
-			actualValuesStr := strings.Join(actualValues, "\n")
+		expectedValuesStr := strings.Join(expectedValues, "\n")
+		actualValuesStr := strings.Join(actualValues, "\n")
 
-			if expectedValuesStr != actualValuesStr {
-				return fmt.Errorf("Expected %v to be returned as values, got: %v", expectedValues, actualValues)
-			}
-
-		case err := <-errorChannel:
-			panic(fmt.Sprintf("CodeCrafters internal error: Database query failed: %v", err))
-
-		case <-time.After(1 * time.Second):
-			panic("CodeCrafters internal error: Failed to open the test database within 1 second")
+		if expectedValuesStr != actualValuesStr {
+			return fmt.Errorf("Expected %v to be returned as values, got: %v", expectedValues, actualValues)
 		}
 	}
 
