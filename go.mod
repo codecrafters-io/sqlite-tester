@@ -6,11 +6,12 @@ toolchain go1.24.1
 
 require (
 	github.com/bxcodec/faker/v3 v3.6.0
-	github.com/codecrafters-io/tester-utils v0.4.9
+	github.com/codecrafters-io/tester-utils v0.4.12
 	modernc.org/sqlite v1.14.0
 )
 
 require (
+	github.com/creack/pty v1.1.24 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect

@@ -1,7 +1,9 @@
 github.com/bxcodec/faker/v3 v3.6.0 h1:Meuh+M6pQJsQJwxVALq6H5wpDzkZ4pStV9pmH7gbKKs=
 github.com/bxcodec/faker/v3 v3.6.0/go.mod h1:gF31YgnMSMKgkvl+fyEo1xuSMbEuieyqfeslGYFjneM=
-github.com/codecrafters-io/tester-utils v0.4.9 h1:4J9ZdYB8A2vktofPK9ZlaaXOXP1dZD9zSv6cwDZ9srU=
-github.com/codecrafters-io/tester-utils v0.4.9/go.mod h1:Fyrv4IebzjWtvKfpYf8ooYDoOtjYe2qx8bV7KAJpX+w=
+github.com/codecrafters-io/tester-utils v0.4.12 h1:ijW1Uak7JxsuyuVPrlK5/hmn1aZZKYcTbiIfS3wwt3k=
+github.com/codecrafters-io/tester-utils v0.4.12/go.mod h1:HkK8e9dga12hpVJJXv6S21kMeSZeobkoEFov1d1WVsY=
+github.com/creack/pty v1.1.24 h1:bJrF4RRfyJnbTJqzRLHzcGaZK1NeM5kTC9jGgovnR1s=
+github.com/creack/pty v1.1.24/go.mod h1:08sCNb52WyoAwi2QDyzUCTgcvVFhUzewun7wtTfvcwE=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dustin/go-humanize v1.0.0 h1:VSnTsYCnlFHaM2/igO1h6X3HA71jcobQuxemgkq4zYo=
