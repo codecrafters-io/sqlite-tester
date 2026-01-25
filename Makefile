@@ -13,6 +13,9 @@ build:
 test:
 	TESTER_DIR=$(shell pwd) go test -v ./internal/
 
+record_fixtures:
+	CODECRAFTERS_RECORD_FIXTURES=true make test
+
 test_and_watch:
 	onchange '**/*' -- go test -v ./internal/
 

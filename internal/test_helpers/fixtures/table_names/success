@@ -3,21 +3,21 @@ Debug = true
 [33m[tester::#SZ4] [0m[94mRunning tests for Stage #SZ4 (sz4)[0m
 [33m[tester::#SZ4] [0m[36mCreating test.db with tables: [apple blueberry grape orange strawberry][0m
 [33m[tester::#SZ4] [0m[94m$ ./your_sqlite3.sh test.db .tables[0m
-[33m[your_program] [0mapple blueberry grape orange strawberry
+[33m[your_program] [0m[0mapple blueberry grape orange strawberry[0m
 [33m[tester::#SZ4] [0m[92mTest passed.[0m
 
 [33m[tester::#CE0] [0m[94mRunning tests for Stage #CE0 (ce0)[0m
 [33m[tester::#CE0] [0m[36mCreating test database with 4 tables: test.db[0m
 [33m[tester::#CE0] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
-[33m[your_program] [0mdatabase page size: 4096
-[33m[your_program] [0mnumber of tables: 4
-[33m[your_program] [0mInvalid command: .dbinfo
+[33m[your_program] [0m[0mdatabase page size: 4096[0m
+[33m[your_program] [0m[0mnumber of tables: 4[0m
+[33m[your_program] [0m[0mInvalid command: .dbinfo[0m
 [33m[tester::#CE0] [0m[92mTest passed.[0m
 
 [33m[tester::#DR6] [0m[94mRunning tests for Stage #DR6 (dr6)[0m
 [33m[tester::#DR6] [0m[36mCreating test database with page size 4096: test.db[0m
 [33m[tester::#DR6] [0m[94m$ ./your_sqlite3.sh test.db .dbinfo[0m
-[33m[your_program] [0mdatabase page size: 4096
-[33m[your_program] [0mnumber of tables: 1
-[33m[your_program] [0mInvalid command: .dbinfo
+[33m[your_program] [0m[0mdatabase page size: 4096[0m
+[33m[your_program] [0m[0mnumber of tables: 1[0m
+[33m[your_program] [0m[0mInvalid command: .dbinfo[0m
 [33m[tester::#DR6] [0m[92mTest passed.[0m
